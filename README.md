@@ -1,5 +1,7 @@
 # <reserpital >
 
+◆実装機能リスト　https://docs.google.com/spreadsheets/d/1KUlFG1sHCej8PPBKK4mMlj9xMBLWT-5IU7uj7Fba5j4/edit#gid=375590402
+
 ## サイト概要
 ### サイトテーマ
 <病院の診察の予約サイトです。>
@@ -15,10 +17,7 @@
 <病院に行く時、大体の待ち時間を知りたい時>
 
 ## 設計書
-<-画面設計
-　-テーブル定義書
-　-ER図
-　-アプリケーション詳細設計>
+- ER図　https://app.diagrams.net/#G1FTgRzysOnk4TSJxEtD8wJKx12yHzinme
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -28,5 +27,3 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
