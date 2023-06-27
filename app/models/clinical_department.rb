@@ -1,0 +1,2 @@
+class ClinicalDepartment < ApplicationRecord
+end
