@@ -16,19 +16,18 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    root 'homes#top'
+    get 'homes/top' => 'homes#top'
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update]
     resources :end_users, only: [:index, :show,:edit, :update]
   end
 
   namespace :owner do
-    root 'homes#top'
+    get 'homes/top' => 'homes#top'
     resources :end_users, only: [:show]
     resources :reserves, only: [:edit, :update]
   end
 
   namespace :public do
-    root 'homes#top'
     resources :hospitals, only: [:index, :show]
     resources :reserves, only: [:new, :create, :index, :show]
     post 'reserves/confirm' => 'reserves#confirm'
@@ -38,6 +37,7 @@ Rails.application.routes.draw do
     patch 'end_users/withdrawal' => 'end_users#withdrawal'
     resource :favorites, only: [:index, :create, :destroy]
   end
+  root to: 'public/homes#top'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
