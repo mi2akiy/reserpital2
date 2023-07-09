@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   #エンドユーザー用
   devise_for :end_users,skip: [:passwords], controllers: {
-    registrateions: "public/registrations",
+    registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
