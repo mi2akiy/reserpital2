@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'homes/top' => 'homes#top'
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update]
     resources :end_users, only: [:index, :show,:edit, :update]
+    resources :clinical_departments, only: [:index, :new]
   end
 
   namespace :owner do
