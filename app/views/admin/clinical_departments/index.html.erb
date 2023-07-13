@@ -1,0 +1,14 @@
+<table class="table-info">
+  <tr>
+    <th>診療科ID</th>
+    <th>診療科名</th>
+    <th>        </th>
+  </tr>
+  <% @clinical_departments.each do |clinical_department| %>
+    <tr>
+      <td><%= clinical_department.id %></td>
+      <td><%= clinical_department.name %></td>
+      <td><%= link_to '削除', admin_clinical_department_path, method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

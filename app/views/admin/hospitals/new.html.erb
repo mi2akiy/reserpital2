@@ -4,37 +4,37 @@
       <%= f.label :病院画像 %>
       <%= f.file_field :hospital_image, placeholder: "病院画像", accept: "image/*" %>
     </div>
-    
+
     <div class="field">
       <%= f.label :病院名 %>
       <%= f.text_field :name, placeholder: "病院名", accept: "name" %>
     </div>
-    
+
     <!--<div class="field">-->
     <!--  <%#= f.label :診療科 %>-->
     <!--  <%#= f.text_field :, placeholder: "診療科名", accept: "name" %>-->
     <!--</div>-->
-    
+
     <div class="field">
       <%= f.label :電話番号 %>
       <%= f.text_field :telephone_number, placeholder: "電話番号", accept: "telephone_number" %>
     </div>
-    
+
     <div class="field">
       <%= f.label :郵便番号（ハイフンなし） %>
       <%= f.text_field :postal_code, placeholder: "郵便番号", accept: "postal_code" %>
     </div>
-    
+
     <div class="field">
       <%= f.label :住所 %>
       <%= f.text_field :address, placeholder: "住所", accept: "address" %>
     </div>
-    
+
     <div class="field">
       <%= f.label :ホームページURL %>
       <%= f.text_field :home_page, placeholder: "URL", accept: "home_page" %>
     </div>
-    
+
     <div class="field">
       <table>
         <tr>
@@ -58,7 +58,7 @@
       </table>
     </div>
 
-    
+
     <div class="actions">
       <%= f.submit "保存" %>
 

@@ -1,7 +1,7 @@
 class CreateClinicalDepartments < ActiveRecord::Migration[6.1]
   def change
     create_table :clinical_departments do |t|
-      t.integer :hospital_id, null: false
+      t.integer :hospital_id
       t.string :name, null: false
     
 

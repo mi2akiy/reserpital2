@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2023_06_27_123641) do
   end
 
   create_table "clinical_departments", force: :cascade do |t|
-    t.integer "hospital_id", null: false
+    t.integer "hospital_id"
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
