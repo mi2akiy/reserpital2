@@ -1,2 +1,30 @@
-<h1>Admin::Hospitals#index</h1>
-<p>Find me in app/views/admin/hospitals/index.html.erb</p>
+<%= link_to '新しい病院を登録する',admin_temporary_departments_path %>
+
+<table class="table">
+  <tr>
+    <th>
+      診療科
+    </th>
+    <th>
+      病院
+    </th>
+    <th>
+      住所
+    </th>
+  </tr>
+  <% @hospitals.each do |hospital| %>
+    <tr>
+      <td>
+        <%#= hospital.temporary_department_name %>
+      </td>
+      <td>
+        <%= link_to admin_hospital_path(hospital.id) do %> 
+          <%= hospital.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= hospital.postal_code + " " + hospital.address %>
+      </td>
+    </tr>
+  <% end %>
+</table>

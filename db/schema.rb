@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_27_123641) do
+ActiveRecord::Schema.define(version: 2023_07_16_082820) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2023_06_27_123641) do
 
   create_table "clinical_departments", force: :cascade do |t|
     t.integer "hospital_id"
-    t.string "name", null: false
+    t.string "temporary_department_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,9 +87,9 @@ ActiveRecord::Schema.define(version: 2023_06_27_123641) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "hospitals", force: :cascade do |t|
+  create_table "hospital_details", force: :cascade do |t|
+    t.integer "hospital_id", null: false
     t.string "name", null: false
-    t.integer "clinical_department_id", null: false
     t.string "telephone_number", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
@@ -97,22 +97,52 @@ ActiveRecord::Schema.define(version: 2023_06_27_123641) do
     t.time "am_end_time", null: false
     t.time "pm_start_time", null: false
     t.time "pm_end_time", null: false
-    t.integer "monday_am", null: false
-    t.integer "monday_pm", null: false
-    t.integer "tuesday_am", null: false
-    t.integer "tuesday_pm", null: false
-    t.integer "wednesday_am", null: false
-    t.integer "wednesday_pm", null: false
-    t.integer "thursday_am", null: false
-    t.integer "thursday_pm", null: false
-    t.integer "friday_am", null: false
-    t.integer "friday_pm", null: false
-    t.integer "saturday_am", null: false
-    t.integer "saturday_pm", null: false
-    t.integer "sunday_am", null: false
-    t.integer "sunday_pm", null: false
-    t.integer "holiday_am", null: false
-    t.integer "horliday_pm", null: false
+    t.string "monday_am", null: false
+    t.string "monday_pm", null: false
+    t.string "tuesday_am", null: false
+    t.string "tuesday_pm", null: false
+    t.string "wednesday_am", null: false
+    t.string "wednesday_pm", null: false
+    t.string "thursday_am", null: false
+    t.string "thursday_pm", null: false
+    t.string "friday_am", null: false
+    t.string "friday_pm", null: false
+    t.string "saturday_am", null: false
+    t.string "saturday_pm", null: false
+    t.string "sunday_am", null: false
+    t.string "sunday_pm", null: false
+    t.string "holiday_am", null: false
+    t.string "holiday_pm", null: false
+    t.string "home_page"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hospitals", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "telephone_number", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.time "am_start_time", null: false
+    t.time "am_end_time", null: false
+    t.time "pm_start_time", null: false
+    t.time "pm_end_time", null: false
+    t.string "monday_am", null: false
+    t.string "monday_pm", null: false
+    t.string "tuesday_am", null: false
+    t.string "tuesday_pm", null: false
+    t.string "wednesday_am", null: false
+    t.string "wednesday_pm", null: false
+    t.string "thursday_am", null: false
+    t.string "thursday_pm", null: false
+    t.string "friday_am", null: false
+    t.string "friday_pm", null: false
+    t.string "saturday_am", null: false
+    t.string "saturday_pm", null: false
+    t.string "sunday_am", null: false
+    t.string "sunday_pm", null: false
+    t.string "holiday_am", null: false
+    t.string "holiday_pm", null: false
     t.string "home_page"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -138,6 +168,12 @@ ActiveRecord::Schema.define(version: 2023_06_27_123641) do
     t.date "date", null: false
     t.time "time", null: false
     t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "temporary_departments", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

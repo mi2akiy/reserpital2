@@ -1,0 +1,98 @@
+<div class="hospital-box">
+  <div class="hospital-image">
+    <%= @hospital.get_hospital_image(150,150) %>
+  </div>
+  <div class="hospital-details">
+    <div class="hospital-name">
+      <%= @hospital.name %>
+    </div>
+    <div class="hospital-clinical_department">
+      <%= @clinical_departments %>
+    </div>
+    <div class="hospital-address">
+      <%= "〒" + @hospital.postal_code + " " + @hospital.address %>
+    </div>
+    <div class="hospital-consultation-time">
+      <table class="table table-bordered">
+        <tr class="table-primary">
+          <th> </th>
+          <th>診察開始時間</th>
+          <th>診察終了時間</th>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th>土</th>
+          <th>日</th>
+          <th>祝日</th>
+        </tr>
+        <tr>
+          <td>午前</td>
+          <td><%= @hospital.am_start_time %></td>
+          <td><%= @hospital.am_end_time %></td>
+          <td><%= @hospital.monday_am %></td>
+          <td><%= @hospital.tuesday_am %></td>
+          <td><%= @hospital.wednesday_am %></td>
+          <td><%= @hospital.thursdayt_am %></td>
+          <td><%= @hospital.friday_am %></td>
+          <td><%= @hospital.aturday_am %></td>
+          <td><%= @hospital.sunday_am %></td>
+          <td><%= @hospital.holiday_am %></td>
+        </tr>
+        <tr>
+          <td>午後</td>
+          <td><%= @hospital.pm_start_time %></td>
+          <td><%= @hospital.pm_end_time %></td>
+          <td><%= @hospital.monday_pm %></td>
+          <td><%= @hospital.tuesday_pm %></td>
+          <td><%= @hospital.wednesday_pm %></td>
+          <td><%= @hospital.thursdayt_pm %></td>
+          <td><%= @hospital.friday_pm %></td>
+          <td><%= @hospital.saturday_pm %></td>
+          <td><%= @hospital.sunday_pm %></td>
+          <td><%= @hospital.holiday_pm %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+ 
+  <div class="d-flex justify-content-evenly">
+    <%= link_to "戻る", new_admin_clinical_department_path %>
+    <%= link_to "キャンセルする", admin_hospital_path, method: :delete %>
+    <%= form_with model: @hospital, url:admin_hospitals_path ,method: :post do |f| %>
+      <%= f.hidden_field :name, :value => @hospital.name %>
+      <%= f.hidden_field :clinical_department_id, :value => @hospital.clinical_department_id %>
+      <%= f.hidden_field :telephone_number, :value => @hospital.telephone_number %>
+      <%= f.hidden_field :postal_code, :value => @hospital.postal_code %>
+      <%= f.hidden_field :address, :value => @hospital.address %>
+      <%= f.hidden_field :am_start_time, :value => @hospital.am_start_time %>
+      <%= f.hidden_field :am_end_time, :value => @hospital.am_end_time %>
+      <%= f.hidden_field :pm_start_time, :value => @hospital.pm_start_time %>
+      <%= f.hidden_field :pm_end_time, :value => @hospital.pm_end_time %>
+      <%= f.hidden_field :monday_am, :value => @hospital.monday_am %>
+      <%= f.hidden_field :monday_pm, :value => @hospital.monday_pm %>
+      <%= f.hidden_field :tuesday_am, :value => @hospital.tuesday_am %>
+      <%= f.hidden_field :tuesday_pm, :value => @hospital.tuesday_pm %>
+      <%= f.hidden_field :wednesday_am, :value => @hospital.wednesday_am %>
+      <%= f.hidden_field :wednesday_pm, :value => @hospital.wednesday_pm %>
+      <%= f.hidden_field :thursday_am, :value => @hospital.thursday_am %>
+      <%= f.hidden_field :friday_am, :value => @hospital.friday_am %>
+      <%= f.hidden_field :friday_pm, :value => @hospital.friday_pm %>
+      <%= f.hidden_field :saturday_am, :value => @hospital.saturday_am %>
+      <%= f.hidden_field :saturday_pm, :value => @hospital.saturday_pm %>
+      <%= f.hidden_field :sunday_am, :value => @hospital.sunday_am %>
+      <%= f.hidden_field :sunday_pm, :value => @hospital.sunday_pm %>
+      <%= f.hidden_field :horiday_am, :value => @hospital.horiday_am %>
+      <%= f.hidden_field :horiday_pm, :value => @hospital.horiday_pm %>
+      <%= f.hidden_field :home_page, :value => @hospital.home_page %>
+      <%= f.submit "登録する", class:"btn-success" %>
+    <% end %>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+</div>

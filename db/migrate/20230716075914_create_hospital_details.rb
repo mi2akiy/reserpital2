@@ -1,6 +1,7 @@
-class CreateHospitals < ActiveRecord::Migration[6.1]
+class CreateHospitalDetails < ActiveRecord::Migration[6.1]
   def change
-    create_table :hospitals do |t|
+    create_table :hospital_details do |t|
+      t.integer :hospital_id, null: false
       t.string :name, null: false
       t.string :telephone_number, null: false
       t.string :postal_code, null: false
@@ -26,6 +27,7 @@ class CreateHospitals < ActiveRecord::Migration[6.1]
       t.string :holiday_am, null: false
       t.string :holiday_pm, null: false
       t.string :home_page
+
       t.timestamps
     end
   end

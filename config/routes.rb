@@ -17,9 +17,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes/top' => 'homes#top'
-    resources :hospitals, only: [:index, :new, :create, :show, :edit, :update]
+    resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    post 'hospitals/confirm' => 'hospitals#confirm'
+    resources :temporary_departments, only: [:index, :create, :destroy] do
+        collection do
+          delete "destroy_all"
+      end
+    end
+    post 'temporary_department/official_registration' => 'temporary_department#official_registration'
+    resources :clinical_departments, only:[:new, :create]
     resources :end_users, only: [:index, :show,:edit, :update]
-    resources :clinical_departments, only: [:index, :new, :create, :destroy]
+
   end
 
   namespace :owner do

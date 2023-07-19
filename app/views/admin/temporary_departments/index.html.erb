@@ -1,0 +1,38 @@
+<% if @temporary_department.errors.any? %>
+  <%= @temporary_department.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @temporary_department.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= form_with model: @temporary_department, url:admin_temporary_departments_path, method: :post do |f| %>
+    <div class="field">
+      <%= f.label :診療科名 %>
+      <%= f.text_field :name, placeholder: "診療科名", accept: "name" %>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+</div>
+
+<table class="table table-bordered">
+  <tr class="table-primary">
+    <th>診療科名</th>
+    <th>        </th>
+  </tr>
+  <% @temporary_departments.each do |temporary_department| %>
+    <tr>
+      <td><%= temporary_department.name %></td>
+      <td><%= link_to '削除', admin_temporary_department_path(temporary_department.id), method: :delete, class:"btn btn-danger" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if @temporary_departments.first %>
+  <%= link_to '確認画面へ進む', new_admin_clinical_department_path %>
+    
+<% else %>
+
+<% end %>

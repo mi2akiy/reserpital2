@@ -1,22 +1,14 @@
-<% if @clinical_department.errors.any? %>
-  <%= @clinical_department.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @clinical_department.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<div class="d-flex justify-content-center">
-  <%= form_with model: @clinical_department, url:admin_clinical_departments_path, method: :post do |f| %>
-    <div class="field">
-      <%= f.label :診療科名 %>
-      <%= f.text_field :name, placeholder: "診療科名", accept: "name" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "登録" %>
-
-    </div>
+<table class="table table-bordered">
+  <tr class="table-primary">
+    <th>診療科名</th>
+  </tr>
+  <% @temporary_departments.each do |temporary_department| %>
+    <tr>
+      <td><%= temporary_department.name %></td>
+    </tr>
   <% end %>
-</div>
+</table>
+この診療科で登録してよろしいですか？
+
+
+<%=link_to '確定して病院情報の入力へ進む', new_admin_hospital_path %>

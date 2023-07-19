@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <%= form_with model: @hospital do |f| %>
+  <%= form_with model: @hospital, url:admin_hospitals_path, method: :post do |f| %>
     <div class="field">
       <%= f.label :病院画像 %>
       <%= f.file_field :hospital_image, placeholder: "病院画像", accept: "image/*" %>
@@ -9,11 +9,6 @@
       <%= f.label :病院名 %>
       <%= f.text_field :name, placeholder: "病院名", accept: "name" %>
     </div>
-
-    <!--<div class="field">-->
-    <!--  <%#= f.label :診療科 %>-->
-    <!--  <%#= f.text_field :, placeholder: "診療科名", accept: "name" %>-->
-    <!--</div>-->
 
     <div class="field">
       <%= f.label :電話番号 %>
@@ -36,8 +31,8 @@
     </div>
 
     <div class="field">
-      <table>
-        <tr>
+      <table class="table table-bordered">
+        <tr class="table-primary">
           <th> </th>
           <th>診察開始時間</th>
           <th>診察終了時間</th>
@@ -53,15 +48,32 @@
         <tr>
           <td>午前</td>
           <td><%= f.time_select :am_start_time %></td>
+          <td><%= f.time_select :am_end_time %></td>
+          <td><%= f.select :monday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :tuesday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :wednesday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :thursday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :friday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :saturday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :sunday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :holiday_am, [["◯", "◯"], ["✕", "✕"]]  %></td>
+        </tr>
+        <tr>
+          <td>午後</td>
           <td><%= f.time_select :pm_start_time %></td>
+          <td><%= f.time_select :pm_end_time %></td>
+          <td><%= f.select :monday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :tuesday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :wednesday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :thursday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :friday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :saturday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :sunday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
+          <td><%= f.select :holiday_pm, [["◯", "◯"], ["✕", "✕"]]  %></td>
         </tr>
       </table>
     </div>
-
-
-    <div class="actions">
-      <%= f.submit "保存" %>
-
-    </div>
+    
+    <%= f.submit "確認画面へ進む" %>
   <% end %>
 </div>

@@ -1,31 +1,19 @@
 class Admin::ClinicalDepartmentsController < ApplicationController
-  def index
-    @clinical_departments = ClinicalDepartment.all
-  end
-
+  
   def new
+    @temporary_departments = TemporaryDepartment.all
     @clinical_department = ClinicalDepartment.new
   end
-
+  
   def create
     @clinical_department = ClinicalDepartment.new(clinical_department_params)
-    if @clinical_department.save
-      redirect_to admin_clinical_departments_path
-    else @clinical_departments = ClinicalDepartment.all
-      render :new
-    end
-  end
-  
-  def destroy
-    @clinical_department = ClinicalDepartment.find(params[:id])
-    @clinical_department.destroy
-    redirect_to admin_clinical_departments_path
+    @clinical_department.save
+    redirect_to new_admin_hospital_path
   end
 
-private
+  private
 
   def clinical_department_params
-    params.require(:clinical_department).permit(:name)
+    params.require(:clinical_department).permit(:temporary_department_id)
   end
-
 end
