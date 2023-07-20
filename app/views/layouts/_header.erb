@@ -12,7 +12,8 @@
               <li><%= link_to 'トップ',admin_homes_top_path, class:"btn btn-outline-success" %> </li>
               <li><%= link_to 'ユーザー一覧',admin_end_users_path, class:"btn btn-outline-success" %> </li>
               <li><%= link_to '病院一覧',admin_hospitals_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to '病院を追加',admin_temporary_departments_path, class:"btn btn-outline-success" %></li>
+              <li><%= link_to '診療科一覧', admin_clinical_departments_path, class:"btn btn-outline-success" %></li>
+              <li><%= link_to '病院を追加',new_admin_hospital_path, class:"btn btn-outline-success" %></li>
               <li><%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class:"btn btn-outline-success"  %></li>
             <% elsif owner_signed_in? %>
               <li><%= link_to '診察予約一覧',owner_root_path, class:"btn btn-outline-success" %></li>

@@ -15,7 +15,7 @@
   <% @hospitals.each do |hospital| %>
     <tr>
       <td>
-        <%#= hospital.temporary_department_name %>
+        <%= hospital.clinical_department_id.temporary_department_name %>
       </td>
       <td>
         <%= link_to admin_hospital_path(hospital.id) do %> 

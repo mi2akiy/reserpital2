@@ -1,0 +1,32 @@
+<% if @clinical_department.errors.any? %>
+  <%= @clinical_department.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @clinical_department.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= form_with model: @clinical_department, url:admin_clinical_departments_path, method: :post do |f| %>
+    <div class="field">
+      <%= f.label :診療科名 %>
+      <%= f.text_field :name, placeholder: "診療科名", accept: "name" %>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+</div>
+
+<table class="table table-bordered">
+  <tr class="table-primary">
+    <th>診療科名</th>
+    <th>        </th>
+  </tr>
+  <% @clinical_departments.each do |clinical_department| %>
+    <tr>
+      <td><%= clinical_department.name %></td>
+      <td><%= link_to '削除', admin_clinical_department_path(clinical_department.id), method: :delete, class:"btn btn-danger" %></td>
+    </tr>
+  <% end %>
+</table>
+

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'clinical_department_managers/index'
+  end
   #管理者用
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top' => 'homes#top'
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :clinical_departments, only: [:index, :create, :destroy]
     post 'hospitals/confirm' => 'hospitals#confirm'
     resources :temporary_departments, only: [:index, :create, :destroy] do
         collection do

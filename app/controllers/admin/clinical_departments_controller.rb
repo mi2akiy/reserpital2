@@ -1,19 +1,21 @@
 class Admin::ClinicalDepartmentsController < ApplicationController
   
-  def new
-    @temporary_departments = TemporaryDepartment.all
-    @clinical_department = ClinicalDepartment.new
+  
+  def index
+    @clinical_departments = ClinicalDepartment.all
+    @clinical_department = ClinicalDepartment.new    
   end
   
   def create
     @clinical_department = ClinicalDepartment.new(clinical_department_params)
+
     @clinical_department.save
-    redirect_to new_admin_hospital_path
+    redirect_to  admin_clinical_departments_path
   end
 
   private
 
   def clinical_department_params
-    params.require(:clinical_department).permit(:temporary_department_id)
+    params.require(:clinical_department).permit(:name)
   end
 end

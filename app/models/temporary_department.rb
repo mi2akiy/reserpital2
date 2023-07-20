@@ -1,3 +1,0 @@
-class TemporaryDepartment < ApplicationRecord
-
-end

@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <%= form_with model: @hospital, url:admin_hospitals_path, method: :post do |f| %>
+  <%= form_with url:admin_hospitals_path, method: :post do |f| %>
     <div class="field">
       <%= f.label :病院画像 %>
       <%= f.file_field :hospital_image, placeholder: "病院画像", accept: "image/*" %>
@@ -28,6 +28,13 @@
     <div class="field">
       <%= f.label :ホームページURL %>
       <%= f.text_field :home_page, placeholder: "URL", accept: "home_page" %>
+    </div>
+    
+    <div class="field">
+    <%= f.collection_check_boxes(:clinical_department_ids, ClinicalDepartment.all, :id, :name) do |clinical_department| %>
+    <%= clinical_department.check_box %>
+    <%= clinical_department.text %>
+    <% end %>
     </div>
 
     <div class="field">
