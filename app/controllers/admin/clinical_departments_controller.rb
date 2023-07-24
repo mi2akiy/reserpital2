@@ -3,7 +3,7 @@ class Admin::ClinicalDepartmentsController < ApplicationController
   
   def index
     @clinical_departments = ClinicalDepartment.all
-    @clinical_department = ClinicalDepartment.new    
+    @clinical_department = ClinicalDepartment.new   
   end
   
   def create
@@ -11,6 +11,12 @@ class Admin::ClinicalDepartmentsController < ApplicationController
 
     @clinical_department.save
     redirect_to  admin_clinical_departments_path
+  end
+  
+  def destroy
+    @clinical_department = ClinicalDepartment.find(params[:id])
+    @clinical_department.destroy
+    redirect_to admin_clinical_departments_path
   end
 
   private

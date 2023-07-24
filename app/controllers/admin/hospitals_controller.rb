@@ -35,6 +35,12 @@ class Admin::HospitalsController < ApplicationController
   end
 
   def edit
+    @hospital = Hospital.find(params[:id])
+  end
+  
+  def update
+    @hospital.update(hospital_params)
+    redirect_to admin_hospital_path(@hospital)
   end
 
 private

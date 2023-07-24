@@ -1,2 +1,1 @@
-<h1>Admin::Hospitals#edit</h1>
-<p>Find me in app/views/admin/hospitals/edit.html.erb</p>
+<%= render 'form', hospital: @hospital, url: admin_hospital_path,method: :patch, submit: '更新' %>
