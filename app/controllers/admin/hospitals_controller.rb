@@ -7,10 +7,10 @@ class Admin::HospitalsController < ApplicationController
     @hospital = Hospital.new
   end
 
-  def confirm
-    @hospital = Hospital.new(hospital_params)
-    @clinical_departments = ClinicalDepartment.all
-  end
+  # def confirm
+  #   @hospital = Hospital.new(hospital_params)
+  #   @clinical_departments = ClinicalDepartment.all
+  # end
 
   def create
     @hospital = Hospital.new(hospital_params)
@@ -24,10 +24,8 @@ class Admin::HospitalsController < ApplicationController
 
   def destroy
     @hospital = Hospital.find(params[:id])
-    @clinical_departments = ClinicalDepartments.all
     @hospital.destroy
-    @clinical_departments.destroy
-    redirect_to admin_homes_top
+    redirect_to admin_hospitals_path
   end
 
   def show
@@ -39,8 +37,17 @@ class Admin::HospitalsController < ApplicationController
   end
   
   def update
-    @hospital.update(hospital_params)
-    redirect_to admin_hospital_path(@hospital)
+    @hospital = Hospital.find(params[:id])
+    if @hospital.update(hospital_params)
+      # params[:clinical_department_ids].shift
+      # params[:clinical_department_ids].each do |clinical_department_id|
+      # @hospital.clinical_department_managers.create!(clinical_department_id: clinical_department_id )
+      # end
+      redirect_to admin_hospital_path(@hospital)
+    else
+      @hospital = Hospital.find(params[:id])
+      render :edit
+    end
   end
 
 private

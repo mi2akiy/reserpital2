@@ -1,6 +1,6 @@
 <div class="hospital-box p-2 d-flex flex-row">
   <div class="hospital-image">
-    <%= image_tag @hospital.hospital_image, size: "300x200" %>
+    <%= image_tag @hospital.get_hospital_image(200,300) %>
   </div>
 
   <div class="hospital_details pl-2">
