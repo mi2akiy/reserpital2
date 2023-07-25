@@ -1,2 +1,4 @@
-<h1>Public::Reserves#new</h1>
-<p>Find me in app/views/public/reserves/new.html.erb</p>
+<%= form_for [@hospital, @hospital.reservations.new] do |f| %>
+  <%= f.hidden_field :hospital_id, value: @hospital.id %>
+  <%#= render 'form', end_user: @end_user, url:public_end_users_path, submit: '予約する' %>
+<% end %>

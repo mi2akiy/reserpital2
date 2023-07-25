@@ -41,8 +41,9 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :hospitals, only: [:index, :show]
-    resources :reserves, only: [:new, :create, :index, :show]
+    resources :hospitals, only: [:index, :show] do
+      resources :reservations, only: [:new, :create, :index, :show]
+    end
     post 'reserves/confirm' => 'reserves#confirm'
     get 'reserves/conmplete' => 'reserves#complete'
     resource :end_users, only: [:show, :edit, :update]

@@ -1,2 +1,50 @@
-<h1>Public::Hospitals#show</h1>
-<p>Find me in app/views/public/hospitals/show.html.erb</p>
+<div class="hospital-box border">
+  <%= render 'admin/hospitals/hospital-information', hospital: @hospital %>
+  <table class="table table-bordered">
+    <tr class="table-primary">
+      <th> </th>
+      <th>診察開始時間</th>
+      <th>診察終了時間</th>
+      <th>月</th>
+      <th>火</th>
+      <th>水</th>
+      <th>木</th>
+      <th>金</th>
+      <th>土</th>
+      <th>日</th>
+      <th>祝日</th>
+    </tr>
+    <tr>
+      <td>午前</td>
+      <td><%= l @hospital.am_start_time, format: :short %></td>
+      <td><%= l @hospital.am_end_time, format: :short %></td>
+      <td><%= @hospital.monday_am %></td>
+      <td><%= @hospital.tuesday_am %></td>
+      <td><%= @hospital.wednesday_am %></td>
+      <td><%= @hospital.thursday_am %></td>
+      <td><%= @hospital.friday_am %></td>
+      <td><%= @hospital.saturday_am %></td>
+      <td><%= @hospital.sunday_am %></td>
+      <td><%= @hospital.holiday_am %></td>
+    </tr>
+    <tr>
+      <td>午後</td>
+      <td><%= l @hospital.pm_start_time, format: :short %></td>
+      <td><%= l @hospital.pm_end_time, format: :short %></td>
+      <td><%= @hospital.monday_pm %></td>
+      <td><%= @hospital.tuesday_pm %></td>
+      <td><%= @hospital.wednesday_pm %></td>
+      <td><%= @hospital.thursday_pm %></td>
+      <td><%= @hospital.friday_pm %></td>
+      <td><%= @hospital.saturday_pm %></td>
+      <td><%= @hospital.sunday_pm %></td>
+      <td><%= @hospital.holiday_pm %></td>
+    </tr>
+  </table>
+</div>
+
+<!--メニューボタン-->
+<div class="d-flex justify-content-center">
+  <div class="m-2"><%= link_to "診察予約をする", new_public_hospital_reservation_path, class:"btn btn-success" %></div>
+  <div class="m-2"><%= link_to "戻る", public_hospitals_path, class:"btn btn-light" %></div>
+</div>

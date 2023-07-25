@@ -1,84 +1,46 @@
-<div class="hospital-box p-2 d-flex flex-row">
-  <div class="hospital-image">
-    <%= image_tag @hospital.get_hospital_image(200,300) %>
-  </div>
-
-  <div class="hospital_details pl-2">
-    <table class="hospital_details-table table table-bordered">
-      <tr>
-        <td>
-          病院名
-        </td>
-        <td>
-          <%= @hospital.name %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          診療科
-        </td>
-        <td>
-      　　  <% @hospital.clinical_departments.each do |clinical_department| %>
-      　　  <%= clinical_department.name %>
-      　　  <% end %>
-        </td>
-      </tr>
-
-  　　<tr>
-    　　  <td>
-          住所
-    　　  </td>
-    　　  <td>
-          <%= "〒" + @hospital.postal_code + " " + @hospital.address %>
-    　　  </td>
-  　　</tr>
-  　</table>
-
-　　<table class="table-bordered">
-        <tr class="table-primary">
-          <th> </th>
-          <th>診察開始時間</th>
-          <th>診察終了時間</th>
-          <th>月</th>
-          <th>火</th>
-          <th>水</th>
-          <th>木</th>
-          <th>金</th>
-          <th>土</th>
-          <th>日</th>
-          <th>祝日</th>
-        </tr>
-        <tr>
-          <td>午前</td>
-          <td><%= l @hospital.am_start_time, format: :short %></td>
-          <td><%= l @hospital.am_end_time, format: :short %></td>
-          <td><%= @hospital.monday_am %></td>
-          <td><%= @hospital.tuesday_am %></td>
-          <td><%= @hospital.wednesday_am %></td>
-          <td><%= @hospital.thursday_am %></td>
-          <td><%= @hospital.friday_am %></td>
-          <td><%= @hospital.saturday_am %></td>
-          <td><%= @hospital.sunday_am %></td>
-          <td><%= @hospital.holiday_am %></td>
-        </tr>
-        <tr>
-          <td>午後</td>
-          <td><%= l @hospital.pm_start_time, format: :short %></td>
-          <td><%= l @hospital.pm_end_time, format: :short %></td>
-          <td><%= @hospital.monday_pm %></td>
-          <td><%= @hospital.tuesday_pm %></td>
-          <td><%= @hospital.wednesday_pm %></td>
-          <td><%= @hospital.thursday_pm %></td>
-          <td><%= @hospital.friday_pm %></td>
-          <td><%= @hospital.saturday_pm %></td>
-          <td><%= @hospital.sunday_pm %></td>
-          <td><%= @hospital.holiday_pm %></td>
-        </tr>
-    </table>
-
-
-  </div>
+<div class="hospital-box border">
+  <%= render 'hospital-information', hospital: @hospital %>
+  <table class="table table-bordered">
+    <tr class="table-primary">
+      <th> </th>
+      <th>診察開始時間</th>
+      <th>診察終了時間</th>
+      <th>月</th>
+      <th>火</th>
+      <th>水</th>
+      <th>木</th>
+      <th>金</th>
+      <th>土</th>
+      <th>日</th>
+      <th>祝日</th>
+    </tr>
+    <tr>
+      <td>午前</td>
+      <td><%= l @hospital.am_start_time, format: :short %></td>
+      <td><%= l @hospital.am_end_time, format: :short %></td>
+      <td><%= @hospital.monday_am %></td>
+      <td><%= @hospital.tuesday_am %></td>
+      <td><%= @hospital.wednesday_am %></td>
+      <td><%= @hospital.thursday_am %></td>
+      <td><%= @hospital.friday_am %></td>
+      <td><%= @hospital.saturday_am %></td>
+      <td><%= @hospital.sunday_am %></td>
+      <td><%= @hospital.holiday_am %></td>
+    </tr>
+    <tr>
+      <td>午後</td>
+      <td><%= l @hospital.pm_start_time, format: :short %></td>
+      <td><%= l @hospital.pm_end_time, format: :short %></td>
+      <td><%= @hospital.monday_pm %></td>
+      <td><%= @hospital.tuesday_pm %></td>
+      <td><%= @hospital.wednesday_pm %></td>
+      <td><%= @hospital.thursday_pm %></td>
+      <td><%= @hospital.friday_pm %></td>
+      <td><%= @hospital.saturday_pm %></td>
+      <td><%= @hospital.sunday_pm %></td>
+      <td><%= @hospital.holiday_pm %></td>
+    </tr>
+  </table>
 </div>
 
 <!--メニューボタン-->
