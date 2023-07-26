@@ -23,6 +23,10 @@ class Public::EndUsersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
+   
+  def reserved_hospitals
+    @hosoitals = current_e_user.hospitals
+  end
 
 private
 

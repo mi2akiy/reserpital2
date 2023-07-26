@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 2023_07_20_121259) do
     t.integer "hospital_id", null: false
     t.date "date", null: false
     t.time "time", null: false
-    t.integer "status", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

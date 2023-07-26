@@ -5,7 +5,7 @@ class CreateReservations < ActiveRecord::Migration[6.1]
       t.integer :hospital_id, null: false
       t.date :date, null: false
       t.time :time, null: false
-      t.integer :status, null: false
+      t.integer :status, null: false, default: "0"
       t.timestamps
     end
   end
