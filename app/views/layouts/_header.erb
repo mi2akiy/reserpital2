@@ -9,25 +9,95 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <li><%= link_to 'トップ',admin_homes_top_path, class:"btn btn-outline-success" %> </li>
-              <li><%= link_to 'ユーザー一覧',admin_end_users_path, class:"btn btn-outline-success" %> </li>
-              <li><%= link_to '病院一覧',admin_hospitals_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to '診療科一覧', admin_clinical_departments_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to '病院を追加',new_admin_hospital_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class:"btn btn-outline-success"  %></li>
+              <!--トップ画面-->
+              <li>
+                <%= link_to admin_homes_top_path do %>
+                  <i class="fas fa-home"></i>
+                <% end %>
+              </li>
+              <!--ユーザー一覧-->
+              <li>
+                <%= link_to admin_end_users_path do %>
+                  <i class="fas fa-users"></i>
+                <% end %>
+              </li>
+              <!--病院一覧-->
+              <li>
+                <%= link_to admin_hospitals_path do %>
+                  <i class="fas fa-hospital-alt"></i>
+                <% end %>
+              </li>
+              <!--診療科一覧-->
+              <li>
+                <%= link_to admin_clinical_departments_path do %>
+                  <i class="fas fa-hospital-symbol"></i>
+                <% end %>
+              </li>
+              <!--病院を追加-->
+              <li>
+                <%= link_to new_admin_hospital_path do %>
+                  <i class="far fa-plus-square"></i>
+                <% end %>
+              </li>
+              <!--ログアウト-->
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                <% end %>
+              </li>
             <% elsif owner_signed_in? %>
-              <li><%= link_to '診察予約一覧',owner_root_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to 'ログアウト',destroy_owner_session_path, method: :delete, class:"btn btn-outline-success"  %></li>
+              <!--診察予約一覧-->
+              <li>
+                <%= link_to owner_root_path do %>
+                  <i class="fas fa-hospital-user"></i>
+                <% end %>
+              </li>
+              <!--ログアウト-->
+              <li>
+                <%= link_to destroy_owner_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                <% end %>
+              </li>
             <% elsif end_user_signed_in? %>
-               <li><%= link_to '病院を探す',public_hospitals_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to 'マイページ',public_end_users_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to 'ログアウト',destroy_end_user_session_path, method: :delete, class:"btn btn-outline-success"  %></li>
+              <!--病院を探す-->
+              <li>
+                <%= link_to public_hospitals_path do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+              </li>
+              <!--マイページ-->
+              <li>
+                <%= link_to public_end_users_path do %>
+                  <i class="fas fa-user-circle"></i>
+                <% end %>
+              </li>
+              <!--ログアウト-->
+              <li>
+                <%= link_to destroy_end_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                <% end %>
+              </li>
             <% else %>
-              <li><%= link_to '病院を探す',public_hospitals_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to '新規登録',new_end_user_registration_path, class:"btn btn-outline-success" %></li>
-              <li><%= link_to 'ログイン',new_end_user_session_path, class:"btn btn-outline-success" %></li>
+              <!--病院を探す-->
+              <li>
+                <%= link_to public_hospitals_path do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+              </li>
+              <!--新規会員登録-->
+              <li>
+                <%= link_to new_end_user_registration_path do %>
+                  <i class="fas fa-user-plus"></i>
+                <% end %>
+              </li>
+              <!--ログイン-->
+              <li>
+                <%= link_to new_end_user_session_path do %>
+                  <i class="fas fa-sign-in-alt"></i>
+                <% end %>
+              </li>
             <% end %>
           </ul>
   </div>
-  <%= render 'search', q: @q, url: public_hospitals_path %>
+  <%#= render 'search', q: @q, url: public_hospitals_path %>
 </nav>
