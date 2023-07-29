@@ -18,13 +18,24 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
+  
+  def end_user_state
+    ## 【処理内容1】 入力されたemailからアカウントを1件取得
+    @end_user =EndUser.find_by(email: params[:end_user][:email])
+    ## アカウントを取得できなかった場合、このメソッドを終了する
+    return if !@end_user
+    ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
+    if @end_user.valid_password?(params[:end_user][:password])
+      ## 【処理内容3】
+    end
+  end
+  
   def after_sign_in_path_for(resource)
     root_path
   end
@@ -32,4 +43,6 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     root_path
   end
+  
+  
 end

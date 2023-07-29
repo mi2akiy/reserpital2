@@ -1,2 +1,86 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<div class="d-flex justify-content-start">
+  <!--メニューボダン-->
+  <div class="d-flex flex-column ml-4">
+    <ul class="list-unstyled">
+      <li class="mb-2">
+        <%= link_to edit_admin_end_user_path, class:"btn btn-secondary" do %>
+          <i class="fas fa-user-cog"></i>
+          登録情報を編集する
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <!--登録情報-->
+  <div class="ml-4">
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          名前
+        </td>
+        <td>
+          <%= @end_user.last_name + " " + @end_user.first_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          フリガナ
+        </td>
+        <td>
+          <%= @end_user.last_name_kana + " " + @end_user.first_name_kana %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          性別
+        </td>
+        <td>
+          <%= @end_user.sex %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          生年月日
+        </td>
+        <td>
+          <%= @end_user.birthday %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          メールアドレス
+        </td>
+        <td>
+          <%= @end_user.email %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          電話番号
+        </td>
+        <td>
+          <%= @end_user.telephone_number %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          住所
+        </td>
+        <td>
+          <%= @end_user.postal_code + " " + @end_user.address %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+
+
+</div>

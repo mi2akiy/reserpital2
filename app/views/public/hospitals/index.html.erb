@@ -1,6 +1,6 @@
 <% @hospitals.each do |hospital| %>
   <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
-  <div class="hospital-box border p-2 d-flex flex-row">
+  <div class="hospital-box border m-5 p-2 d-flex flex-row">
   <div class="hospital-image">
     <%= link_to public_hospital_path(hospital.id) do %>
       <%= image_tag hospital.get_hospital_image(200,300) %>
@@ -36,3 +36,5 @@
   </div>
 </div>
 <% end %>
+
+<%= paginate @hospitals %>
