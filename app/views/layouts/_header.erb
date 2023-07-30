@@ -7,6 +7,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <%= render 'search', q: @q, url: public_hospitals_path %>
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
               <!--トップ画面-->
@@ -99,5 +100,5 @@
             <% end %>
           </ul>
   </div>
-  <%#= render 'search', q: @q, url: public_hospitals_path %>
+  
 </nav>

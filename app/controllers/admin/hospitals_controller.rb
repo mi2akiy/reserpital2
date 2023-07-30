@@ -15,9 +15,10 @@ class Admin::HospitalsController < ApplicationController
   def create
     @hospital = Hospital.new(hospital_params)
     @hospital.save
-    params[:clinical_department_ids].shift
-    params[:clinical_department_ids].each do |clinical_department_id|
-    @hospital.clinical_department_managers.create!(clinical_department_id: clinical_department_id )
+    department_ids = hospital_params[:clinical_department_ids]
+    department_ids.shift
+    department_ids.each do |clinical_department_id|
+    @hospital.clinical_department_managers.create!(clinical_department_id: clinical_department_id.to_i )
     end
     redirect_to admin_hospital_path(@hospital)
   end
@@ -49,7 +50,7 @@ class Admin::HospitalsController < ApplicationController
 private
 
   def hospital_params
-     params.require(:hospital).permit(:hospital_image, :name, :clinical_department_id, :telephone_number, :postal_code, :address, :am_start_time, :am_end_time, :pm_start_time, :pm_end_time, :monday_am, :monday_pm, :tuesday_am, :tuesday_pm, :wednesday_am, :wednesday_pm, :thursday_am, :thursday_pm, :friday_am, :friday_pm, :saturday_am, :saturday_pm, :sunday_am, :sunday_pm, :holiday_am, :holiday_pm, :home_page)
+     params.require(:hospital).permit(:hospital_image, :name, :telephone_number, :postal_code, :address, :am_start_time, :am_end_time, :pm_start_time, :pm_end_time, :monday_am, :monday_pm, :tuesday_am, :tuesday_pm, :wednesday_am, :wednesday_pm, :thursday_am, :thursday_pm, :friday_am, :friday_pm, :saturday_am, :saturday_pm, :sunday_am, :sunday_pm, :holiday_am, :holiday_pm, :home_page, clinical_department_ids: [])
   end
   # def hospital_update_params
   #   params.require(:hospital).permit(:hospital_image, :name, :clinical_department_id, :telephone_number, :postal_code, :address, :am_start_time, :am_end_time, :pm_start_time, :pm_end_time, :monday_am, :monday_pm, :tuesday_am, :tuesday_pm, :wednesday_am, :wednesday_pm, :thursday_am, :thursday_pm, :friday_am, :friday_pm, :saturday_am, :saturday_pm, :sunday_am, :sunday_pm, :holiday_am, :holiday_pm, :home_page)

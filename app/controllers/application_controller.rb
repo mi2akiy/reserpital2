@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   # before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :configure_sign_up_params, only: [:create]
 
+  before_action :set_q_for_hospital
+
+  def set_q_for_hospital
+    @q_header = Hospital.includes(:clinical_departments).ransack(params[:q])
+  end
+
   def after_sign_up_path_for(resource)
     root_path
   end
@@ -11,5 +17,5 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :hospital_id])
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :hospital_id])
   # end
-  
+
 end

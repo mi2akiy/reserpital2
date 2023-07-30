@@ -13,4 +13,12 @@ class Hospital < ApplicationRecord
     hospital_image.variant(resize_to_limit: [width,height]).processed
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["address", "am_end_time", "am_start_time", "created_at", "friday_am", "friday_pm", "holiday_am", "holiday_pm", "home_page", "id", "monday_am", "monday_pm", "name", "pm_end_time", "pm_start_time", "postal_code", "saturday_am", "saturday_pm", "sunday_am", "sunday_pm", "telephone_number", "thursday_am", "thursday_pm", "tuesday_am", "tuesday_pm", "updated_at", "wednesday_am", "wednesday_pm"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["owners", "reservations", "clinical_department_managers", "clinical_departments"]
+  end
+
 end
