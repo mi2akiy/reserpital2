@@ -10,7 +10,7 @@ class Public::ReservationsController < ApplicationController
   end
 
   def complete
-    
+    @hospital = Hospital.find(params[:hospital_id])
   end
 
   def index
