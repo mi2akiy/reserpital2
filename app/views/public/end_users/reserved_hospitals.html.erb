@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-start">
+  <!--メニューボダン-->
+  <%= render 'menu'%>
+
+  <!--診察予約履歴一覧  -->
+  <div>
+    <% @hospitals.each do |hospital| %>
+      <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
+      <div class="hospital-box border m-5 p-2 d-flex flex-row">
+      <div class="hospital-image">
+        <%= link_to public_hospital_path(hospital.id) do %>
+          <%= image_tag hospital.get_hospital_image(200,300) %>
+        <% end %>
+      </div>
+
+      <div class="hospital_details pl-2">
+        <div class="reseravation border bg-light">
+          <%#= hospital.reservations.status_i18n %>
+          <%= hospital.reservations.where(reservations: { status: :accepted }).count %>番目
+        </div>
+        <table class="hospital_details-table table table-bordered">
+          <tr>
+            <td>病院名</td>
+            <td>
+              <%= link_to public_hospital_path(hospital.id) do %>
+                <%= hospital.name %>
+              <% end %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>診療科</td>
+            <td>
+              <% hospital.clinical_departments.each do |clinical_department| %>
+          　　  <%= clinical_department.name %>
+          　　  <% end %>
+            </td>
+          </tr>
+
+      　　<tr>
+            <td>住所</td>
+            <td><%= "〒" + hospital.postal_code + " " + hospital.address %></td>
+      　　</tr>
+      　</table>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= paginate @hospitals %>
