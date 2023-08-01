@@ -1,4 +1,6 @@
 class Admin::HospitalsController < ApplicationController
+  before_action :authenticate_admin
+
   def index
     @hospitals = Hospital.all
   end
@@ -48,6 +50,12 @@ class Admin::HospitalsController < ApplicationController
   end
 
 private
+
+  def authenticate_admin
+    unless admin_signed_in?
+      redirect_to new_admin_session_path
+    end
+  end
 
   def hospital_params
      params.require(:hospital).permit(:hospital_image, :name, :telephone_number, :postal_code, :address, :am_start_time, :am_end_time, :pm_start_time, :pm_end_time, :monday_am, :monday_pm, :tuesday_am, :tuesday_pm, :wednesday_am, :wednesday_pm, :thursday_am, :thursday_pm, :friday_am, :friday_pm, :saturday_am, :saturday_pm, :sunday_am, :sunday_pm, :holiday_am, :holiday_pm, :home_page, clinical_department_ids: [])

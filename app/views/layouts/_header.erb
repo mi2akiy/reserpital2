@@ -10,12 +10,6 @@
           <%= render 'public/hospitals/search', q: @q, url: public_hospitals_path %>
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <!--トップ画面-->
-              <li class="ml-2 mr-2">
-                <%= link_to admin_homes_top_path do %>
-                  <i class="fas fa-home"></i>
-                <% end %>
-              </li>
               <!--ユーザー一覧-->
               <li class="ml-2 mr-2">
                 <%= link_to admin_end_users_path do %>

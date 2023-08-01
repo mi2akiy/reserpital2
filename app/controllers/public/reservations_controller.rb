@@ -1,8 +1,5 @@
 class Public::ReservationsController < ApplicationController
-  def new
-    @hospital = Hospital.find(params[:hospital_id])
-    @reservation = Reservation.new
-  end
+  before_action :authenticate_end_user
 
   def create
     @reservation = current_end_user.reservations.create(hospital_id: params[:hospital_id],date:Date.today,time:Time.now)
@@ -13,17 +10,16 @@ class Public::ReservationsController < ApplicationController
     @hospital = Hospital.find(params[:hospital_id])
   end
 
-  def index
-    @q = Board.ransack(params[:q])
-    @hospitals = @q.result(distinct: true).includes(:end_user).page(params[:page]).order("created_at desc")
-  end
-
-  def show
-  end
 
   private
+  
+   def authenticate_end_user
+    unless end_user_signed_in?
+      redirect_to new_end_user_session_path
+    end
+   end
 
- def reservation_params
-    params.require(:reservation).permit(:date, :time, :hospital_id)
- end
+   def reservation_params
+      params.require(:reservation).permit(:date, :time, :hospital_id)
+   end
 end

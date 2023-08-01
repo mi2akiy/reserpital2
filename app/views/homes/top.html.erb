@@ -1,0 +1,40 @@
+<div class="text-center">
+    <p>
+        reserpitalは病院の診察予約サイトです。<br>
+        最寄りの病院を探し簡単に診察予約が可能です。
+    </p>
+</div>
+<!--管理者用-->
+<% if admin_signed_in? %>
+  <%= render 'admin' %>
+<!--病院オーナー用-->
+<% elsif owner_signed_in? %>
+  <%= render 'owner' %>
+<!--エンドユーザー用-->
+<% elsif end_user_signed_in? %>
+  <%= render 'public' %>
+<!--未ログイン-->
+<% else %>
+    <div class="d-flex justify-content-around">
+        <div class="border rounded text-center p-5">
+            <%= link_to public_hospitals_path do %>
+                病院を探す<br>
+                <i class="fas fa-search"></i>
+            <% end %>
+        </div>
+        <div class="border rounded text-center p-5">
+            <%= link_to new_end_user_registration_path do %>
+                新規会員登録<br>
+                <i class="fas fa-user-plus"></i>
+            <% end %>
+        </div>
+        <div class="border rounded text-center p-5">
+            <%= link_to new_end_user_session_path do %>
+                ログイン<br>
+                <i class="fas fa-sign-in-alt"></i>
+            <% end %>
+        </div>
+    </div>
+<% end %>
+
+</div>

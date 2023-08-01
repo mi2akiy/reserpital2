@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homes/top'
   namespace :admin do
     get 'clinical_department_managers/index'
   end
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
   }
 
   #病院オーナー用
-  devise_for :owners, skip:[:registrations, :passwords], controllers: {
+  devise_for :owners, skip:[:passwords], controllers: {
+    registrations: "owner/registrations",
     sessions: "owner/sessions"
   }
 
@@ -19,14 +21,12 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get 'homes/top' => 'homes#top'
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :clinical_departments, only: [:index, :create, :destroy]
     resources :end_users, only: [:index, :show,:edit, :update]
   end
 
   namespace :owner do
-    get 'homes/top' => 'homes#top'
     resources :end_users, only: [:show]
     resources :reserves, only: [:edit, :update]
   end
@@ -36,9 +36,9 @@ Rails.application.routes.draw do
       resources :reservations, only: [:create,]
       get 'reservationss/conmplete' => 'reservations#complete'
     end
-    
-    resource :end_users, only: [:show, :edit, :update]  do 
-      collection do 
+
+    resource :end_users, only: [:show, :edit, :update]  do
+      collection do
        get :reserved_hospitals
       end
     end
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     patch 'end_users/withdrawal' => 'end_users#withdrawal'
     resource :favorites, only: [:index, :create, :destroy]
   end
-  root to: 'public/homes#top'
+  root to: 'homes#top'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
