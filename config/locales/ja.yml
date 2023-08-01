@@ -20,19 +20,19 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%H:%M"
-      
-    ja:
-    enums:
-      reservation:
-        status:
-          accepted: "受付済"
-          call: "呼び出し中"
-          cancel: "キャンセル"
-          examined: "診察済"
-          
-          
-          
-          
+
+
+  enums:
+    reservation:
+      status:
+        accepted: "受付済"
+        call: "呼び出し中"
+        cancel: "キャンセル"
+        examined: "診察済"
+
+
+
+
     activerecord:
     errors:
       messages:
@@ -50,7 +50,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -76,7 +76,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -207,13 +207,5 @@ ja:
       last_word_connector: "、"
       two_words_connector: "、"
       words_connector: "、"
-      
-      
-  ja:
-    enums:
-      reservation:
-              status:
-                accepted: "受付済"
-                call: "呼び出し中"
-                cancel: "キャンセル"
-                examined: "診察済"
+
+
