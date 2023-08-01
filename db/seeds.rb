@@ -8,3 +8,8 @@
 Admin.create!(
     email: 'admin@admin.com',
     password: "admin123")
+    
+Owners.create!(
+    hospital: '尼崎だいもつ',
+    email: 'owner1@owner.com',
+    password: "owner123")
