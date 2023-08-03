@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'owners/new'
+    get 'owners/edit'
+  end
   get 'homes/top'
   namespace :admin do
     get 'clinical_department_managers/index'
@@ -21,7 +25,9 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resources :owners, only: [:index, :create, :destroy]
+    end
     resources :clinical_departments, only: [:index, :create, :destroy]
     resources :end_users, only: [:index, :show,:edit, :update]
   end

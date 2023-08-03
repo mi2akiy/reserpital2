@@ -9,11 +9,6 @@ class Admin::HospitalsController < ApplicationController
     @hospital = Hospital.new
   end
 
-  # def confirm
-  #   @hospital = Hospital.new(hospital_params)
-  #   @clinical_departments = ClinicalDepartment.all
-  # end
-
   def create
     @hospital = Hospital.new(hospital_params)
     @hospital.save

@@ -1,10 +1,7 @@
 <div class="d-flex justify-content-center">
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :hospital %><br />
-      <%= f.collection_select :hospital_id, Hospital.all, :id, :name, include_blank: "選択して下さい" %>
-    </div>
+    
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
