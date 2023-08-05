@@ -45,7 +45,7 @@
 
 <!--メニューボタン-->
 <div class="d-flex justify-content-around">
-  <div class="m-2"><%= link_to "オーナー一覧", admin_hospital_owners_path(:@hospital_id), class:"btn btn-success" %></br>
+  <div class="m-2"><%= link_to "オーナー一覧", admin_hospital_owners_path(@hospital.id), class:"btn btn-success" %></br>
   <div class="m-2"><%= link_to "病院情報を編集する", edit_admin_hospital_path, class:"btn btn-success" %></div>
   <div class="m-2"><%= link_to "削除する", admin_hospital_path, method: :delete, class:"btn btn-danger" %></div>
   <div class="m-2"><%= link_to "戻る", admin_hospitals_path, class:"btn btn-light" %></div>
