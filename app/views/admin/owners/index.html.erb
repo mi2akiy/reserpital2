@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-start">
   <!--オーナーの新規登録-->
   <div class="owner-registration">
-    <%= form_with model: @ownre, url: admin_hospital_owners_path, method: :post do |f| %>
+    <%= form_with model: @owner, url: admin_hospital_owners_path, method: :post do |f| %>
       <div class="field">
         <%= f.label :名前（姓） %><br />
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>

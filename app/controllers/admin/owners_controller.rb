@@ -8,9 +8,9 @@ class Admin::OwnersController < ApplicationController
   end
 
   def create
-    @ownre = Owner.new
-    @owner.save(owner_params)
-    redirect_to admin_hospital_owners_path(hospital_id)
+    @owner = Owner.new(owner_params)
+    @owner.save!
+    redirect_to admin_hospital_owners_path
   end
 
   def destroy
@@ -25,6 +25,6 @@ class Admin::OwnersController < ApplicationController
   end
 
   def owner_params
-     params.require(:owner).permit(:email, :name, :encrypted_password, :hospital_id)
+     params.require(:owner).permit(:email, :name, :password, :password_confirmation, :hospital_id)
   end
 end
