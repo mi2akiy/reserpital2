@@ -9,6 +9,7 @@ class Admin::OwnersController < ApplicationController
 
   def create
     @owner = Owner.new(owner_params)
+    @owner.hospital_id = params[:hospital_id]
     @owner.save!
     redirect_to admin_hospital_owners_path
   end

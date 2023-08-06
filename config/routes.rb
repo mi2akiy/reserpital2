@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'owners/new'
-    get 'owners/edit'
-  end
-  get 'homes/top'
-  namespace :admin do
-    get 'clinical_department_managers/index'
-  end
+  # get 'homes/top'
+  # namespace :admin do
+  #   get 'clinical_department_managers/index'
+  # end
   #管理者用
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -33,8 +29,10 @@ Rails.application.routes.draw do
   end
 
   namespace :owner do
+    resources :hospitals, only: [:show, :edit, :update]
+    resources :owners, only: [:index]
     resources :end_users, only: [:show]
-    resources :reserves, only: [:edit, :update]
+    resources :reservations, only: [:index, :edit, :update]
   end
 
   namespace :public do
