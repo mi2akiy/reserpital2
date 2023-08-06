@@ -15,6 +15,9 @@ class Admin::OwnersController < ApplicationController
   end
 
   def destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+    redirect_to  admin_hospital_owners_path
   end
 
   private

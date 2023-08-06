@@ -10,7 +10,7 @@ class Owner::HospitalsController < ApplicationController
   def update
     @hospital = Hospital.find(params[:id])
     if @hospital.update(hospital_params)
-      redirect_to admin_hospital_path(@hospital)
+      redirect_to owner_hospital_path(@hospital)
     else
       @hospital = Hospital.find(params[:id])
       render :edit
