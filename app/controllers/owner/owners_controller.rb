@@ -1,12 +1,10 @@
 class Owner::OwnersController < ApplicationController
   def index
-    @owner = Owner.new
-    @owners = Owner.joins(:hospital).all
     @hospital = Hospital.find(current_owner.hospital.id)
-    # @hospital = Hospital.find(params[:hospital_id])
-    # @owners = Owner.all
+    @owner = Owner.new
+    @owners = @hospital.owners
   end
-  
+
   def create
     @owner = Owner.new(owner_params)
     @owner.hospital_id = current_owner.hospital.id
@@ -19,9 +17,9 @@ class Owner::OwnersController < ApplicationController
     @owner.destroy
     redirect_to  owner_owners_path
   end
-  
+
   private
-  
+
   def owner_params
      params.require(:owner).permit(:email, :name, :password, :password_confirmation, :hospital_id)
   end

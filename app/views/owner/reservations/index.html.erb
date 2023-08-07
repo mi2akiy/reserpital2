@@ -7,10 +7,10 @@
   <tr>
     <td>
       <%= link_to owner_end_user_path(reservation.end_user.id) do %>
-        <%= reservation.end_user.first_name + " " + reservation.end_user.last_name %>
+        <%= reservation.end_user.last_name + " " + reservation.end_user.first_name %>
       <% end %>
       </td>
-    <td><%= reservation.end_user.first_name_kana + " " + reservation.end_user.last_name_kana %></td>
+    <td><%= reservation.end_user.last_name_kana + " " + reservation.end_user.first_name_kana %></td>
   </tr>
   <% end %>
 </table>

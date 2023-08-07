@@ -29,10 +29,11 @@ Rails.application.routes.draw do
   end
 
   namespace :owner do
-    resources :hospitals, only: [:show, :edit, :update]
     resources :owners, only: [:index, :create, :destroy]
     resources :end_users, only: [:show]
-    resources :reservations, only: [:index, :edit, :update]
+    resources :hospitals, only: [:show, :edit, :update] do
+      resources :reservations, only: [:index, :edit, :update]
+    end
   end
 
   namespace :public do

@@ -2,19 +2,19 @@
     <div class="border rounded text-center p-5">
       <%= link_to owner_hospital_path(current_owner.hospital.id) do %>
         病院詳細<br>
-        <i class="fas fa-users"></i>
+        <i class="fas fa-hospital-alt"></i>
       <% end %>
     </div>
     <div class="border rounded text-center p-5">
       <%= link_to owner_owners_path do %>
         オーナー一覧<br>
-        <i class="fas fa-hospital-alt"></i>
+        <i class="fa-regular fa-user"></i>
       <% end %>
     </div>
     <div class="border rounded text-center p-5">
-      <%= link_to owner_reservations_path do %>
+      <%= link_to owner_hospital_reservations_path(@hospital.id) do %>
         診察予約一覧<br>
-        <i class="fas fa-hospital-symbol"></i>
+        <i class="fas fa-hospital-user"></i>
       <% end %>
     </div>
   </div>

@@ -1,1 +1,14 @@
 <%= render 'public/end_users/personal_information', end_user: @end_user %>
+
+<table class="table">
+  <tr>
+    <td>診察予約ステータス</td>
+    <%= form_with model: @end_user, url: owner_hospital_reservation_path(@hospital.id,@owner.id), method: :patch do |f| %>
+      <td>
+        <%= @end_user.reservations.where(hospital_id: @owner.hospital.id).order(created_at: :DESC).first.status_i18n %>
+        <%#=f.collection_select :status,Rservation.all %>
+        <%= f.submit "ステータスを変更する" %>
+      </td>
+    <% end %>
+  </tr>
+</table>
