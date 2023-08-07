@@ -1,5 +1,6 @@
 class Owner::ReservationsController < ApplicationController
   def index
+    @reservations = Reservation.joins(:hospital).all
   end
     
   def edit

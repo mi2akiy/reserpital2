@@ -43,7 +43,7 @@
         <%= owner.email %>
       </td>
       <td>
-        <%= link_to '削除', admin_hospital_owner_path(@hospital.id,owner.id), method: :DELETE %>
+        <%= link_to '削除', url2: url, method: :DELETE %>
       </td>
     </tr>
     <% end %>

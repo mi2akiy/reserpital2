@@ -1,21 +1,23 @@
 class Owner::OwnersController < ApplicationController
   def index
     @owner = Owner.new
-    @hospital = Hospital.find(params[:hospital_id])
-    @owners = Owner.all
+    @owners = Owner.joins(:hospital).all
+    @hospital = Hospital.find(current_owner.hospital.id)
+    # @hospital = Hospital.find(params[:hospital_id])
+    # @owners = Owner.all
   end
   
   def create
     @owner = Owner.new(owner_params)
-    @owner.hospital_id = params[:hospital_id]
+    @owner.hospital_id = current_owner.hospital.id
     @owner.save!
-    redirect_to admin_hospital_owners_path
+    redirect_to owner_owners_path
   end
 
   def destroy
     @owner = Owner.find(params[:id])
     @owner.destroy
-    redirect_to  admin_hospital_owners_path
+    redirect_to  owner_owners_path
   end
   
   private
