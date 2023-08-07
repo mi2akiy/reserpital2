@@ -4,7 +4,8 @@ class Owner::EndUsersController < ApplicationController
     @owner = current_owner
     @hospital = @owner.hospital
   end
-  
+
   def update
+    
   end
 end

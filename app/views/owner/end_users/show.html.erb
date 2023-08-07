@@ -3,10 +3,11 @@
 <table class="table">
   <tr>
     <td>診察予約ステータス</td>
-    <%= form_with model: @end_user, url: owner_hospital_reservation_path(@hospital.id,@owner.id), method: :patch do |f| %>
+    <%= form_with model: @reservation, url: owner_hospital_reservation_path(@hospital.id,@owner.id), method: :patch do |f| %>
       <td>
-        <%= @end_user.reservations.where(hospital_id: @owner.hospital.id).order(created_at: :DESC).first.status_i18n %>
-        <%#=f.collection_select :status,Rservation.all %>
+        <%#= @end_user.reservations.where(hospital_id: @owner.hospital.id).order(created_at: :DESC).first.status_i18n %>
+        <%#= f.select :status, Reservation.statuses.keys.map { |status| [I18n.t("enums.reservation.status.#{status}"), status] }, {}, { selected: @hospital.reservations.first.status } %>
+        <%= f.select :status, Reservation.statuses.keys.map { |status| [I18n.t("enums.reservation.status.#{status}"), status] }, {}, { selected: @reservation.status } %>
         <%= f.submit "ステータスを変更する" %>
       </td>
     <% end %>

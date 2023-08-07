@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex justify-content-start">
   <!--オーナーの新規登録-->
   <div class="owner-registration">
     <%= form_with model: @owner, url: url, method: :post do |f| %>
@@ -43,7 +43,11 @@
         <%= owner.email %>
       </td>
       <td>
-        <%= link_to '削除', url2: url, method: :DELETE %>
+        <% if admin_signed_in? %>
+          <%= link_to '削除', admin_hospital_owner_path(@hospital.id,owner.id), method: :DELETE %>
+        <% elsif owner_signed_in? %>
+          <%= link_to '削除', owner_owner_path(owner.id), method: :DELETE %>
+        <% end %>
       </td>
     </tr>
     <% end %>
