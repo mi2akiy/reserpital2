@@ -80,7 +80,9 @@
         </tr>
       </table>
     </div>
-
-    <%= f.submit submit, class: "btn btn-primary" %>
+    <div class="d-flex justify-content-around">
+      <%= f.submit submit, class: "btn btn-primary" %>
+      <%= link_to "戻る", 'javascript:history.back()', class:"btn btn-light" %>
+     </div>
   <% end %>
 </div>

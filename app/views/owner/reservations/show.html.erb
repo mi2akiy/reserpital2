@@ -69,4 +69,8 @@
         <%= f.select :status, Reservation.statuses.keys.map { |status| [I18n.t("enums.reservation.status.#{status}"), status] }, {}, { selected: @reservation.status } %>
         <%= f.submit "ステータスを変更する" %>
     <% end %>
+    
+    <div class="d-flex justify-content-center">
+      <%= link_to "戻る", 'javascript:history.back()', class:"btn btn-light" %>
+    </div>
   </div>

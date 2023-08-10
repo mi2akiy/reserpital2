@@ -11,76 +11,11 @@
     </ul>
   </div>
 
-  <!--登録情報-->
-  <div class="ml-4">
-    <table class="table table-bordered">
-      <tr>
-        <td>
-          名前
-        </td>
-        <td>
-          <%= @end_user.last_name + " " + @end_user.first_name %>
-        </td>
-      </tr>
+   <!--登録情報-->
+  <%= render 'public/end_users/personal_information', end_user: @end_user %>
 
-      <tr>
-        <td>
-          フリガナ
-        </td>
-        <td>
-          <%= @end_user.last_name_kana + " " + @end_user.first_name_kana %>
-        </td>
-      </tr>
+</div>
 
-      <tr>
-        <td>
-          性別
-        </td>
-        <td>
-          <%= @end_user.sex %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          生年月日
-        </td>
-        <td>
-          <%= @end_user.birthday %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          メールアドレス
-        </td>
-        <td>
-          <%= @end_user.email %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          電話番号
-        </td>
-        <td>
-          <%= @end_user.telephone_number %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          住所
-        </td>
-        <td>
-          <%= @end_user.postal_code + " " + @end_user.address %>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-
-
-
-
+<div class="d-flex justify-content-center">
+  <%= link_to "戻る", admin_end_users_path, class:"btn btn-light" %>
 </div>
