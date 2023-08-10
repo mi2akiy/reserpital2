@@ -25,8 +25,10 @@ class Public::EndUsersController < ApplicationController
   end
    
   def reserved_hospitals
-    @hospitals = current_end_user.hospitals
-    @hospitals = current_end_user.hospitals.page(params[:page]).per(4)
+    @reservations = current_end_user.reservations
+    # @hospitals = current_end_user.hospitals
+    # @hospitals = current_end_user.hospitals.page(params[:page]).per(4)
+    
   end
 
 private

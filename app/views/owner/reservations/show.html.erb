@@ -1,0 +1,72 @@
+<div class="ml-4">
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          名前
+        </td>
+        <td>
+          <%= @reservation.end_user.last_name + " " + @reservation.end_user.first_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          フリガナ
+        </td>
+        <td>
+          <%= @reservation.end_user.last_name_kana + " " + @reservation.end_user.first_name_kana %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          性別
+        </td>
+        <td>
+          <%= @reservation.end_user.sex %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          生年月日
+        </td>
+        <td>
+          <%= @reservation.end_user.birthday %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          メールアドレス
+        </td>
+        <td>
+          <%= @reservation.end_user.email %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          電話番号
+        </td>
+        <td>
+          <%= @reservation.end_user.telephone_number %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          住所
+        </td>
+        <td>
+          <%= @reservation.end_user.postal_code + " " + @reservation.end_user.address %>
+        </td>
+      </tr>
+    </table>
+    
+    <%= form_with model: @reservation, url: owner_reservation_path(@reservation.id), method: :patch do |f| %>
+        <%= f.label :診察予約ステータス %>
+        <%= f.select :status, Reservation.statuses.keys.map { |status| [I18n.t("enums.reservation.status.#{status}"), status] }, {}, { selected: @reservation.status } %>
+        <%= f.submit "ステータスを変更する" %>
+    <% end %>
+  </div>

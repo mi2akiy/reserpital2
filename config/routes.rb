@@ -30,15 +30,14 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :owners, only: [:index, :create, :destroy]
-    resources :end_users, only: [:show]
-    resources :hospitals, only: [:show, :edit, :update] do
-      resources :reservations, only: [:index, :edit, :update]
-    end
+    # resources :end_users, only: [:show]
+    resources :hospitals, only: [:show, :edit, :update]
+    resources :reservations, only: [:index,:show, :update]
   end
 
   namespace :public do
     resources :hospitals, only: [:index, :show] do
-      resources :reservations, only: [:create,]
+      resources :reservations, only: [:create,:show]
       get 'reservationss/conmplete' => 'reservations#complete'
     end
 

@@ -4,26 +4,26 @@
 
   <!--診察予約履歴一覧  -->
   <div>
-    <% @hospitals.each do |hospital| %>
+    <% @reservations.each do |reservation| %>
       <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
       <div class="hospital-box border m-5 p-2 d-flex flex-row">
       <div class="hospital-image">
-        <%= link_to public_hospital_path(hospital.id) do %>
-          <%= image_tag hospital.get_hospital_image(200,300) %>
+        <%= link_to public_hospital_path(reservation.hospital.id) do %>
+          <%= image_tag reservation.hospital.get_hospital_image(200,300) %>
         <% end %>
       </div>
 
       <div class="hospital_details pl-2">
         <div class="reseravation border bg-light">
-          <%= hospital.reservations.where(end_user_id: current_end_user.id).order(created_at: :DESC).first.status_i18n %>
-          <%= hospital.reservations.where(reservations: { status: :accepted }).count %>番目
+          <%= reservation.hospital.reservations.where(end_user_id: current_end_user.id).order(created_at: :DESC).first.status_i18n %>
+          <%= reservation.hospital.reservations.where(reservations: { status: :accepted }).count %>番目
         </div>
         <table class="hospital_details-table table table-bordered">
           <tr>
             <td>病院名</td>
             <td>
-              <%= link_to public_hospital_path(hospital.id) do %>
-                <%= hospital.name %>
+              <%= link_to public_hospital_path(reservation.hospital.id) do %>
+                <%= reservation.hospital.name %>
               <% end %>
             </td>
           </tr>
@@ -31,7 +31,7 @@
           <tr>
             <td>診療科</td>
             <td>
-              <% hospital.clinical_departments.each do |clinical_department| %>
+              <% reservation.hospital.clinical_departments.each do |clinical_department| %>
           　　  <%= clinical_department.name %>
           　　  <% end %>
             </td>
@@ -39,7 +39,7 @@
 
       　　<tr>
             <td>住所</td>
-            <td><%= "〒" + hospital.postal_code + " " + hospital.address %></td>
+            <td><%= "〒" + reservation.hospital.postal_code + " " + reservation.hospital.address %></td>
       　　</tr>
       　</table>
 
@@ -49,4 +49,4 @@
   </div>
 </div>
 
-<%= paginate @hospitals %>
+<%#= paginate @hospitals %>
