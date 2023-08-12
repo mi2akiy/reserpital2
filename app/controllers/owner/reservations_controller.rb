@@ -8,8 +8,12 @@ class Owner::ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
-    @reservation.update(reservation_params)
-    redirect_to owner_reservations_path
+    @reservation.assign_attributes(reservation_params)
+    if @reservation.save(context: :skip_end_user_has_no_pending_appointments)
+      redirect_to owner_reservations_path
+    else
+      render :show
+    end
   end
 
   private
