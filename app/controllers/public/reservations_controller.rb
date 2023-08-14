@@ -5,7 +5,7 @@ class Public::ReservationsController < ApplicationController
      @reservation = current_end_user.reservations.new(hospital_id: params[:hospital_id],date:Date.today,time:Time.now)
      @reservation.end_user = current_end_user
      if @reservation.save
-      redirect_to public_hospital_reservationss_conmplete_path
+      redirect_to public_hospital_reservations_conmplete_path
      else
       @hospital = Hospital.find(params[:hospital_id])
       render template: 'public/hospitals/show'
@@ -17,7 +17,6 @@ class Public::ReservationsController < ApplicationController
   end
   
   def show
-    @RESER
     @hospital = Hospital.find(params[:hospital_id])
   end
 

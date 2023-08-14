@@ -26,14 +26,15 @@ class Public::EndUsersController < ApplicationController
    
   def reserved_hospitals
     @reservations = current_end_user.reservations
-    # @hospitals = current_end_user.hospitals
-    # @hospitals = current_end_user.hospitals.page(params[:page]).per(4)
-    
   end
-
+  
 private
 
   def end_user_params
     params.require(:end_user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :birthday, :email, :telephone_number, :postal_code, :address)
+  end
+
+  def reservation_params
+    params.require(:reservation).permit(:status)
   end
 end
