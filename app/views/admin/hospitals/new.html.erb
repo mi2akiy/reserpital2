@@ -1,1 +1,10 @@
+<% if @hospital.errors.any? %>
+  <%= @hospital.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @hospital.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= render 'form', hospital: @hospital, url: admin_hospitals_path, method: :patch, submit: '登録' %>

@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :hospitals, only: [:index, :show] do
-      resources :reservations, only: [:create,:show]
+      resources :reservations, only: [:create]
       get 'reservations/conmplete' => 'reservations#complete'
     end
 

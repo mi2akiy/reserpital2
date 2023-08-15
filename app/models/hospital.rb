@@ -4,6 +4,11 @@ class Hospital < ApplicationRecord
   has_many :reservations
   has_many :clinical_department_managers, dependent: :destroy
   has_many :clinical_departments, through: :clinical_department_managers
+  
+  validates :name, presence: true
+  validates :telephone_number, presence: true
+  validates :postal_code, presence: true
+  validates :address, presence: true
 
   def get_hospital_image(width,height)
    unless hospital_image.attached?

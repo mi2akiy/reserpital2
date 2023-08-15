@@ -7,10 +7,13 @@ class Admin::ClinicalDepartmentsController < ApplicationController
   end
 
   def create
+    @clinical_departments = ClinicalDepartment.all
     @clinical_department = ClinicalDepartment.new(clinical_department_params)
-
-    @clinical_department.save
-    redirect_to  admin_clinical_departments_path
+    if @clinical_department.save
+      redirect_to  admin_clinical_departments_path
+    else
+      render :index
+    end
   end
 
   def destroy

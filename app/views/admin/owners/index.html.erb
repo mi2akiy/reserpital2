@@ -1,3 +1,12 @@
+<% if @owner.errors.any? %>
+  <%= @owner.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @owner.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+  
   <%= render 'owners', url: admin_hospital_owners_path %>
   
   <div class="d-flex justify-content-around">

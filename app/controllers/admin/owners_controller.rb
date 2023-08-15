@@ -8,10 +8,15 @@ class Admin::OwnersController < ApplicationController
   end
 
   def create
+    @hospital = Hospital.find(params[:hospital_id])
+    @owners = @hospital.owners
     @owner = Owner.new(owner_params)
     @owner.hospital_id = params[:hospital_id]
-    @owner.save!
-    redirect_to admin_hospital_owners_path
+    if @owner.save
+      redirect_to admin_hospital_owners_path
+    else
+      render :index
+    end
   end
 
   def destroy

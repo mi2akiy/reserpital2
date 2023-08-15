@@ -11,13 +11,16 @@ class Admin::HospitalsController < ApplicationController
 
   def create
     @hospital = Hospital.new(hospital_params)
-    @hospital.save
-    department_ids = hospital_params[:clinical_department_ids]
-    department_ids.shift
-    department_ids.each do |clinical_department_id|
-    @hospital.clinical_department_managers.create!(clinical_department_id: clinical_department_id.to_i )
+    if @hospital.save
+      department_ids = hospital_params[:clinical_department_ids]
+      department_ids.shift
+      department_ids.each do |clinical_department_id|
+      @hospital.clinical_department_managers.create!(clinical_department_id: clinical_department_id.to_i )
+      end
+      redirect_to admin_hospital_path(@hospital)
+    else
+      render :new
     end
-    redirect_to admin_hospital_path(@hospital)
   end
 
   def destroy

@@ -10,10 +10,3 @@ if Admin.find_by(email: 'admin@admin.com').nil?
         email: 'admin@admin.com',
         password: "admin123")
 end
-
-if Owner.find_by(email: 'owner1@owner.com').nil?
-    Owner.create!(
-        hospital_id: 16,
-        email: 'owner1@owner.com',
-        password: "owner123")
-end
