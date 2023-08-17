@@ -8,8 +8,13 @@ class Owner::OwnersController < ApplicationController
   def create
     @owner = Owner.new(owner_params)
     @owner.hospital_id = current_owner.hospital.id
-    @owner.save!
-    redirect_to owner_owners_path
+    if @owner.save
+      redirect_to owner_owners_path
+    else
+      @hospital = Hospital.find(current_owner.hospital.id)
+      @owners = @hospital.owners
+      render :index
+    end
   end
 
   def destroy

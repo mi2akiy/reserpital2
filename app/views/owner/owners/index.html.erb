@@ -1,3 +1,11 @@
+<% if @owner.present? && @owner.errors.any? %>
+  <ul>
+  <% @owner.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <%= render 'admin/owners/owners', url: owner_owners_path %>
 <div class="d-flex justify-content-center">
   <%= link_to "戻る", root_path, class:"btn btn-light" %>
