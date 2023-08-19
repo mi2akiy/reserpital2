@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  # ゲスト用
+  devise_scope :end_user do
+    post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
+  end
 
   namespace :admin do
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy] do

@@ -4,4 +4,6 @@ class HomesController < ApplicationController
       @hospital = current_owner.hospital
     end
   end
+  
+  
 end
