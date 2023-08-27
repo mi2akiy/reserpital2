@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # get 'homes/top'
-  # namespace :admin do
-  #   get 'clinical_department_managers/index'
-  # end
   #管理者用
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -34,7 +30,6 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :owners, only: [:index, :create, :destroy]
-    # resources :end_users, only: [:show]
     resources :hospitals, only: [:show, :edit, :update]
     resources :reservations, only: [:index,:show, :update]
   end
