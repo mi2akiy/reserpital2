@@ -28,6 +28,7 @@ class Public::EndUsersController < ApplicationController
     @reservations = current_end_user.reservations
   end
   
+
 private
 
   def end_user_params

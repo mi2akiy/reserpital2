@@ -16,6 +16,13 @@ class Public::ReservationsController < ApplicationController
     @hospital = Hospital.find(params[:hospital_id])
   end
   
+  def cancel
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = cancel
+    @reservation.update(reservation_params)
+    redirect_to reserved_hospitals_public_end_users
+  end
+  
   # def show
   #   @hospital = Hospital.find(params[:hospital_id])
   # end
