@@ -37,9 +37,9 @@ Rails.application.routes.draw do
   namespace :public do
     resources :hospitals, only: [:index, :show] do
       resources :reservations, only: [:create]
-      patch 'reservations/:id/cancel' => 'reservations#cancel'
       get 'reservations/conmplete' => 'reservations#complete'
     end
+    patch 'reservations/:id/cancel' => 'reservations#cancel',as:"cancel"
 
     resource :end_users, only: [:show, :edit, :update]  do
       collection do

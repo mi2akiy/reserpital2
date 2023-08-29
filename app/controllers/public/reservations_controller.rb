@@ -15,14 +15,14 @@ class Public::ReservationsController < ApplicationController
   def complete
     @hospital = Hospital.find(params[:hospital_id])
   end
-  
+
   def cancel
     @reservation = Reservation.find(params[:id])
-    @reservation.status = cancel
-    @reservation.update(reservation_params)
-    redirect_to reserved_hospitals_public_end_users
+    @reservation.status = "cancel"
+    @reservation.save
+    redirect_to reserved_hospitals_public_end_users_path
   end
-  
+
   # def show
   #   @hospital = Hospital.find(params[:hospital_id])
   # end
@@ -39,6 +39,6 @@ class Public::ReservationsController < ApplicationController
    def reservation_params
       params.require(:reservation).permit(:date, :time, :hospital_id)
    end
-   
-   
+
+
 end

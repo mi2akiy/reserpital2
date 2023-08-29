@@ -19,7 +19,7 @@
           <% if reservation.status == "accepted" %>
             <%= reservation.hospital.reservations.where(reservations: { status: :accepted }).count %>番目
             <!--キャンセル機能-->
-            <%= link_to 'キャンセルする',  public_hospital_reservations_path(reservation.hospital_id,reservation_id), method: :patch, class:"btn btn-light" %>
+            <%= link_to 'キャンセルする', public_cancel_path(reservation.id), method: :patch, class:"btn btn-light" %>
           <% else %>
 
           <% end %>
