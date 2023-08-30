@@ -15,7 +15,7 @@
 
       <div class="hospital_details pl-2">
         <div class="reseravation border bg-light">
-          <%= reservation.hospital.reservations.where(end_user_id: current_end_user.id).order(created_at: :DESC).first.status_i18n %>
+          <%= reservation.status_i18n %>
           <% if reservation.status == "accepted" %>
             <%= reservation.hospital.reservations.where(reservations: { status: :accepted }).count %>番目
             <!--キャンセル機能-->

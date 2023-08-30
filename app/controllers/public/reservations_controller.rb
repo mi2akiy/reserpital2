@@ -19,7 +19,7 @@ class Public::ReservationsController < ApplicationController
   def cancel
     @reservation = Reservation.find(params[:id])
     @reservation.status = "cancel"
-    @reservation.save
+    @reservation.save(context: :skip_end_user_has_no_pending_appointments)
     redirect_to reserved_hospitals_public_end_users_path
   end
 
