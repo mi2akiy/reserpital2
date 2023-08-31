@@ -41,6 +41,20 @@
             <% end %>
         </div>
     </div>
+    <div class="d-flex justify-content-around m-4">
+        <div class="border rounded text-center p-5">
+            <%= link_to new_admin_session_path, method: :post do %>
+                管理者ログイン<br>
+                <i class="fas fa-sign-in-alt"></i>
+            <% end %>
+        </div>
+        <div class="border rounded text-center p-5">
+            <%= link_to new_owner_session_path, method: :post do %>
+                病院オーナーログイン<br>
+                <i class="fas fa-sign-in-alt"></i>
+            <% end %>
+        </div>
+    </div>
 <% end %>
 
 </div>
