@@ -15,7 +15,7 @@ class Public::EndUsersController < ApplicationController
 
   def unsubscribe
   end
-  
+
   def withdrawal
     @end_user = EndUser.find(current_end_user.id)
     @end_user.update(is_deleted: true)
@@ -23,11 +23,11 @@ class Public::EndUsersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
-   
+
   def reserved_hospitals
-    @reservations = current_end_user.reservations
+    @reservations = current_end_user.reservations.order(id: :desc)
   end
-  
+
 
 private
 

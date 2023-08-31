@@ -4,7 +4,7 @@
 
   <!--診察予約履歴一覧  -->
   <div>
-    <% @reservations.each do |reservation| %>
+    <% @reservations.each_with_index do|reservation, index| %>
       <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
       <div class="hospital-box border m-5 p-2 d-flex flex-row">
       <div class="hospital-image">
@@ -17,7 +17,7 @@
         <div class="reseravation border bg-light">
           <%= reservation.status_i18n %>
           <% if reservation.status == "accepted" %>
-            <%= reservation.hospital.reservations.where(reservations: { status: :accepted }).count %>番目
+            <%= Reservation.where(hospital_id: reservation.hospital_id, status: "accepted").pluck(:end_user_id).index(current_end_user.id).to_i + 1 %>番目
             <!--キャンセル機能-->
             <%= link_to 'キャンセルする', public_cancel_path(reservation.id), method: :patch, class:"btn btn-light" %>
           <% else %>
