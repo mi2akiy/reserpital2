@@ -466,3 +466,130 @@ Owner.find_or_create_by!(name: "大物一郎") do |owner|
     owner.password = "owner123"
     owner.hospital_id = "8"
 end
+
+
+# ユーザー1
+EndUser.find_or_create_by!(email: "user1@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "一郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "イチロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区1丁目1-1"
+end
+
+# ユーザー2
+EndUser.find_or_create_by!(email: "user2@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "二郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "ジロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区2丁目1-1"
+end
+
+# ユーザー3
+EndUser.find_or_create_by!(email: "user3@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "三郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "サブロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区3丁目1-1"
+end
+
+# ユーザー4
+EndUser.find_or_create_by!(email: "user4@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "四郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "シロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区4丁目1-1"
+end
+
+# ユーザー5
+EndUser.find_or_create_by!(email: "user5@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "五郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "ゴロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区5丁目1-1"
+end
+
+# ユーザー6
+EndUser.find_or_create_by!(email: "user6@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "六郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "ロクロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区6丁目1-1"
+end
+
+# ユーザー7
+EndUser.find_or_create_by!(email: "user7@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "七郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "ナナロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区7丁目1-1"
+end
+
+# ユーザー8
+EndUser.find_or_create_by!(email: "user8@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "八郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "ハチロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区8丁目1-1"
+end
+
+# ユーザー9
+EndUser.find_or_create_by!(email: "user9@user.com") do |end_user|
+    end_user.password = "user123"
+    end_user.last_name = "ユーザー"
+    end_user.first_name = "九郎"
+    end_user.last_name_kana = "ユーザー"
+    end_user.first_name_kana = "クロウ"
+    end_user.birthday = "1990-01-01"
+    end_user.sex ="男性"
+    end_user.telephone_number = "00000000000"
+    end_user.postal_code = "0000000"
+    end_user.address ="大阪府大阪市北区9丁目1-1"
+end
