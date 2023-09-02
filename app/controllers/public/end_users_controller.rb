@@ -1,4 +1,5 @@
 class Public::EndUsersController < ApplicationController
+
   def show
     @end_user = EndUser.find(current_end_user.id)
   end
@@ -24,6 +25,7 @@ class Public::EndUsersController < ApplicationController
     redirect_to root_path
   end
 
+  # 診察予約履歴一覧
   def reserved_hospitals
     @reservations = current_end_user.reservations.order(id: :desc)
   end
