@@ -5,7 +5,6 @@
   <!--診察予約履歴一覧  -->
   <div>
     <% @reservations.each_with_index do|reservation, index| %>
-      <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
       <div class="hospital-box border m-5 p-2 d-flex flex-row">
       <div class="hospital-image">
         <%= link_to public_hospital_path(reservation.hospital.id) do %>
