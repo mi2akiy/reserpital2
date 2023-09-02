@@ -68,7 +68,7 @@ end
 
 # オーナー１
 Owner.find_or_create_by!(name: "東京一郎") do |owner|
-    owner.email = "tokyo@owner.com"
+    owner.email = "tokyo1@owner.com"
     owner.password = "owner123"
     owner.hospital_id = "1"
 end
