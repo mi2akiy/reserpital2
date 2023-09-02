@@ -19,6 +19,7 @@
 ### 主な利用シーン
 - 病院に行く時
 - 大体の待ち時間を知りたい時
+- 病院での待機時間を極力減らしたい時
 
 ## 設計書
 - 実装機能リスト　https://docs.google.com/spreadsheets/d/1KUlFG1sHCej8PPBKK4mMlj9xMBLWT-5IU7uj7Fba5j4/edit#gid=375590402
@@ -33,4 +34,5 @@
 - IDE：Cloud9
 
 ## 使用素材
--　使用検討中です。
+-　https://fontawesome.com/
+-　https://www.pexels.com/ja-jp/
