@@ -32,7 +32,7 @@ ClinicalDepartment.find_or_create_by!(name: "産婦人科")
 
 
 # 病院1
-Hospital.find_or_create_by!(name: "東京医院") do |hospital|
+hospital1 = Hospital.find_or_create_by!(name: "東京医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観1.jpg"), filename:"病院外観1.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -62,7 +62,7 @@ end
 
 # 診療科中間テーブル1
 ClinicalDepartmentManager.find_or_create_by!(id: "1") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="1"
+    clinical_department_manager.hospital_id = hospital1.id
     clinical_department_manager.clinical_department_id = "1"
 end
 
@@ -70,11 +70,11 @@ end
 Owner.find_or_create_by!(name: "東京一郎") do |owner|
     owner.email = "tokyo1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "1"
+    owner.hospital_id = hospital1.id
 end
 
 # 病院2
-Hospital.find_or_create_by!(name: "大阪医院") do |hospital|
+hospital2 = Hospital.find_or_create_by!(name: "大阪医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観2.jpg"), filename:"病院外観4.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -104,11 +104,11 @@ end
 
 # 診療科中間テーブル2
 ClinicalDepartmentManager.find_or_create_by!(id: "2") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="2"
+    clinical_department_manager.hospital_id = hospital2.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "3") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="2"
+    clinical_department_manager.hospital_id = hospital2.id
     clinical_department_manager.clinical_department_id = "2"
 end
 
@@ -116,11 +116,11 @@ end
 Owner.find_or_create_by!(name: "大阪一郎") do |owner|
     owner.email = "oosaka1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "2"
+    owner.hospital_id = hospital2.id
 end
 
 # 病院3
-Hospital.find_or_create_by!(name: "名古屋医院") do |hospital|
+hospital3 = Hospital.find_or_create_by!(name: "名古屋医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観3.jpg"), filename:"病院外観4.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -150,15 +150,15 @@ end
 
 # 診療科中間テーブル3
 ClinicalDepartmentManager.find_or_create_by!(id: "4") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="3"
+    clinical_department_manager.hospital_id = hospital3.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "5") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="3"
+    clinical_department_manager.hospital_id = hospital3.id
     clinical_department_manager.clinical_department_id = "2"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "6") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="3"
+    clinical_department_manager.hospital_id = hospital3.id
     clinical_department_manager.clinical_department_id = "3"
 end
 
@@ -166,11 +166,11 @@ end
 Owner.find_or_create_by!(name: "名古屋一郎") do |owner|
     owner.email = "nagoya1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "3"
+    owner.hospital_id = hospital3.id
 end
 
 # 病院4
-Hospital.find_or_create_by!(name: "福岡医院") do |hospital|
+hospital4 = Hospital.find_or_create_by!(name: "福岡医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観4.jpg"), filename:"病院外観4.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -200,19 +200,19 @@ end
 
 # 診療科中間テーブル4
 ClinicalDepartmentManager.find_or_create_by!(id: "7") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="4"
+    clinical_department_manager.hospital_id = hospital4.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "8") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="4"
+    clinical_department_manager.hospital_id = hospital4.id
     clinical_department_manager.clinical_department_id = "2"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "9") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="4"
+    clinical_department_manager.hospital_id = hospital4.id
     clinical_department_manager.clinical_department_id = "3"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "10") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="4"
+    clinical_department_manager.hospital_id = hospital4.id
     clinical_department_manager.clinical_department_id = "4"
 end
 
@@ -220,11 +220,11 @@ end
 Owner.find_or_create_by!(name: "福岡一郎") do |owner|
     owner.email = "hukuoka1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "4"
+    owner.hospital_id = hospital4.id
 end
 
 # 病院5
-Hospital.find_or_create_by!(name: "兵庫医院") do |hospital|
+hospital5 = Hospital.find_or_create_by!(name: "兵庫医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観5.jpg"), filename:"病院外観5.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -254,23 +254,23 @@ end
 
 # 診療科中間テーブル5
 ClinicalDepartmentManager.find_or_create_by!(id: "11") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="5"
+    clinical_department_manager.hospital_id = hospital5.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "12") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="5"
+    clinical_department_manager.hospital_id = hospital5.id
     clinical_department_manager.clinical_department_id = "2"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "13") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="5"
+    clinical_department_manager.hospital_id = hospital5.id
     clinical_department_manager.clinical_department_id = "3"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "14") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="5"
+    clinical_department_manager.hospital_id = hospital5.id
     clinical_department_manager.clinical_department_id = "4"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "15") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="5"
+    clinical_department_manager.hospital_id = hospital5.id
     clinical_department_manager.clinical_department_id = "5"
 end
 
@@ -278,11 +278,11 @@ end
 Owner.find_or_create_by!(name: "兵庫一郎") do |owner|
     owner.email = "hyogo1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "5"
+    owner.hospital_id = hospital5.id
 end
 
 # 病院6
-Hospital.find_or_create_by!(name: "神戸医院") do |hospital|
+hospital6 = Hospital.find_or_create_by!(name: "神戸医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観6.jpg"), filename:"病院外観6.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -312,27 +312,27 @@ end
 
 # 診療科中間テーブル6
 ClinicalDepartmentManager.find_or_create_by!(id: "16") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="6"
+    clinical_department_manager.hospital_id = hospital6.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "17") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="6"
+    clinical_department_manager.hospital_id = hospital6.id
     clinical_department_manager.clinical_department_id = "2"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "18") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="6"
+    clinical_department_manager.hospital_id = hospital6.id
     clinical_department_manager.clinical_department_id = "3"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "19") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="6"
+    clinical_department_manager.hospital_id = hospital6.id
     clinical_department_manager.clinical_department_id = "4"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "20") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="6"
+    clinical_department_manager.hospital_id = hospital6.id
     clinical_department_manager.clinical_department_id = "5"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "21") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="6"
+    clinical_department_manager.hospital_id = hospital6.id
     clinical_department_manager.clinical_department_id = "6"
 end
 
@@ -340,11 +340,11 @@ end
 Owner.find_or_create_by!(name: "神戸一郎") do |owner|
     owner.email = "kobe1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "6"
+    owner.hospital_id = hospital6.id
 end
 
 # 病院7
-Hospital.find_or_create_by!(name: "尼崎医院") do |hospital|
+hospital7 = Hospital.find_or_create_by!(name: "尼崎医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観7.jpg"), filename:"病院外観7.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -374,27 +374,27 @@ end
 
 # 診療科中間テーブル7
 ClinicalDepartmentManager.find_or_create_by!(id: "22") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="7"
+    clinical_department_manager.hospital_id = hospital7.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "23") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="7"
+    clinical_department_manager.hospital_id = hospital7.id
     clinical_department_manager.clinical_department_id = "2"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "24") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="7"
+    clinical_department_manager.hospital_id = hospital7.id
     clinical_department_manager.clinical_department_id = "3"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "25") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="7"
+    clinical_department_manager.hospital_id = hospital7.id
     clinical_department_manager.clinical_department_id = "4"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "26") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="7"
+    clinical_department_manager.hospital_id = hospital7.id
     clinical_department_manager.clinical_department_id = "5"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "27") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="7"
+    clinical_department_manager.hospital_id = hospital7.id
     clinical_department_manager.clinical_department_id = "6"
 end
 
@@ -402,11 +402,11 @@ end
 Owner.find_or_create_by!(name: "尼崎一郎") do |owner|
     owner.email = "amagasaki1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "7"
+    owner.hospital_id = hospital7.id
 end
 
 # 病院8
-Hospital.find_or_create_by!(name: "だいもつ医院") do |hospital|
+hospital8 = Hospital.find_or_create_by!(name: "だいもつ医院") do |hospital|
   hospital.hospital_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/病院外観8.jpg"), filename:"病院外観8.jpg")
   hospital.telephone_number = "0300000000"
   hospital.postal_code = "0000000"
@@ -436,27 +436,27 @@ end
 
 # 診療科中間テーブル8
 ClinicalDepartmentManager.find_or_create_by!(id: "28") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="8"
+    clinical_department_manager.hospital_id = hospital8.id
     clinical_department_manager.clinical_department_id = "1"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "29") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="8"
+    clinical_department_manager.hospital_id = hospital8.id
     clinical_department_manager.clinical_department_id = "2"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "30") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="8"
+    clinical_department_manager.hospital_id = hospital8.id
     clinical_department_manager.clinical_department_id = "3"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "31") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="8"
+    clinical_department_manager.hospital_id = hospital8.id
     clinical_department_manager.clinical_department_id = "4"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "32") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="8"
+    clinical_department_manager.hospital_id = hospital8.id
     clinical_department_manager.clinical_department_id = "5"
 end
 ClinicalDepartmentManager.find_or_create_by!(id: "33") do |clinical_department_manager|
-    clinical_department_manager.hospital_id ="8"
+    clinical_department_manager.hospital_id = hospital8.id
     clinical_department_manager.clinical_department_id = "6"
 end
 
@@ -464,7 +464,7 @@ end
 Owner.find_or_create_by!(name: "大物一郎") do |owner|
     owner.email = "daimotu1@owner.com"
     owner.password = "owner123"
-    owner.hospital_id = "8"
+    owner.hospital_id = hospital8.id
 end
 
 
