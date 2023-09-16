@@ -8,6 +8,9 @@
           登録情報を編集する
         <% end %>
       </li>
+      <li class="mb-2">
+        <%= link_to '退会する', admin_end_user_end_users_unsubscribe_path(end_user_id: @end_user.id), class:"btn btn-secondary" %>
+      </li>
     </ul>
   </div>
 
