@@ -20,12 +20,12 @@ class Owner::OwnersController < ApplicationController
   def destroy
     @owner = Owner.find(params[:id])
     @owner.destroy
-    redirect_to  owner_owners_path
+    redirect_to owner_owners_path
   end
 
   private
 
   def owner_params
-     params.require(:owner).permit(:email, :name, :password, :password_confirmation, :hospital_id)
+    params.require(:owner).permit(:email, :name, :password, :password_confirmation, :hospital_id)
   end
 end

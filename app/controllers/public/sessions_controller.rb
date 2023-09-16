@@ -5,9 +5,9 @@ class Public::SessionsController < Devise::SessionsController
   before_action :end_user_state, only: [:create]
 
   # GET /resource/sign_in
-   def new
-     super
-   end
+  def new
+    super
+  end
 
   # POST /resource/sign_in
   # def create
@@ -28,21 +28,18 @@ class Public::SessionsController < Devise::SessionsController
 
   def end_user_state
     @end_user = EndUser.find_by(email: params[:end_user][:email])
-    if @end_user
-      if @end_user.valid_password?(params[:end_user][:password]) && @end_user.is_deleted
-        flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
-        redirect_to new_end_user_session_path
-      end
-    end
+    return unless @end_user
+    return unless @end_user.valid_password?(params[:end_user][:password]) && @end_user.is_deleted
+
+    flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
+    redirect_to new_end_user_session_path
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     root_path
   end
 
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for(_resource)
     root_path
   end
-
-
 end

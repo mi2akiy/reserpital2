@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
-  #管理者用
-  devise_for :admin, skip:[:registrations, :passwords], controllers: {
-    sessions: "admin/sessions"
+  # 管理者用
+  devise_for :admin, skip: %i[registrations passwords], controllers: {
+    sessions: 'admin/sessions'
   }
 
-  #病院オーナー用
-  devise_for :owners, skip:[:passwords], controllers: {
-    registrations: "owner/registrations",
-    sessions: "owner/sessions"
+  # 病院オーナー用
+  devise_for :owners, skip: [:passwords], controllers: {
+    registrations: 'owner/registrations',
+    sessions: 'owner/sessions'
   }
 
-  #エンドユーザー用
-  devise_for :end_users,skip: [:passwords], controllers: {
-    registrations: "public/registrations",
+  # エンドユーザー用
+  devise_for :end_users, skip: [:passwords], controllers: {
+    registrations: 'public/registrations',
     sessions: 'public/sessions'
   }
   # ゲスト用
@@ -21,37 +21,37 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :owners, only: [:index, :create, :destroy]
+    resources :hospitals, only: %i[index new create show edit update destroy] do
+      resources :owners, only: %i[index create destroy]
     end
-    resources :clinical_departments, only: [:index, :create, :destroy]
-    resources :end_users, only: [:index, :show,:edit, :update] do
+    resources :clinical_departments, only: %i[index create destroy]
+    resources :end_users, only: %i[index show edit update] do
       get 'end_users/unsubscribe' => 'end_users#unsubscribe'
       patch 'end_users/withdrawal' => 'end_users#withdrawal'
     end
   end
 
   namespace :owner do
-    resources :owners, only: [:index, :create, :destroy]
-    resources :hospitals, only: [:show, :edit, :update]
-    resources :reservations, only: [:index,:show, :update]
+    resources :owners, only: %i[index create destroy]
+    resources :hospitals, only: %i[show edit update]
+    resources :reservations, only: %i[index show update]
   end
 
   namespace :public do
-    resources :hospitals, only: [:index, :show] do
+    resources :hospitals, only: %i[index show] do
       resources :reservations, only: [:create]
       get 'reservations/conmplete' => 'reservations#complete'
     end
-    patch 'reservations/:id/cancel' => 'reservations#cancel',as:"cancel"
+    patch 'reservations/:id/cancel' => 'reservations#cancel', as: 'cancel'
 
-    resource :end_users, only: [:show, :edit, :update]  do
+    resource :end_users, only: %i[show edit update] do
       collection do
-       get :reserved_hospitals
+        get :reserved_hospitals
       end
     end
     get 'end_users/unsubscribe' => 'end_users#unsubscribe'
     patch 'end_users/withdrawal' => 'end_users#withdrawal'
-    resource :favorites, only: [:index, :create, :destroy]
+    resource :favorites, only: %i[index create destroy]
   end
   root to: 'homes#top'
 

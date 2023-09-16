@@ -2,6 +2,7 @@ class Owner::ReservationsController < ApplicationController
   def index
     @reservations = current_owner.hospital.reservations
   end
+
   def show
     @reservation = Reservation.find(params[:id])
   end
@@ -21,5 +22,4 @@ class Owner::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:status)
   end
-
 end

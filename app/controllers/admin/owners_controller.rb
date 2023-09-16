@@ -22,18 +22,18 @@ class Admin::OwnersController < ApplicationController
   def destroy
     @owner = Owner.find(params[:id])
     @owner.destroy
-    redirect_to  admin_hospital_owners_path
+    redirect_to admin_hospital_owners_path
   end
 
   private
 
   def authenticate_admin
-    unless admin_signed_in?
-      redirect_to new_admin_session_path
-    end
+    return if admin_signed_in?
+
+    redirect_to new_admin_session_path
   end
 
   def owner_params
-     params.require(:owner).permit(:email, :name, :password, :password_confirmation, :hospital_id)
+    params.require(:owner).permit(:email, :name, :password, :password_confirmation, :hospital_id)
   end
 end

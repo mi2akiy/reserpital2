@@ -27,20 +27,20 @@ class Admin::EndUsersController < ApplicationController
   def withdrawal
     @end_user = EndUser.find(params[:end_user_id])
     @end_user.update(is_deleted: true)
-    flash[:notice] = "退会処理を実行いたしました"
+    flash[:notice] = '退会処理を実行いたしました'
     redirect_to admin_end_users_path
   end
 
   private
 
   def authenticate_admin
-    unless admin_signed_in?
-      redirect_to new_admin_session_path
-    end
+    return if admin_signed_in?
+
+    redirect_to new_admin_session_path
   end
 
   def end_user_params
-    params.require(:end_user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :birthday, :email, :telephone_number, :postal_code, :address)
+    params.require(:end_user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :birthday,
+                                     :email, :telephone_number, :postal_code, :address)
   end
-
 end

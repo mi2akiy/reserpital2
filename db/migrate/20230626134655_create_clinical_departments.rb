@@ -3,7 +3,6 @@ class CreateClinicalDepartments < ActiveRecord::Migration[6.1]
     create_table :clinical_departments do |t|
       t.string :name
 
-
       t.timestamps
     end
   end

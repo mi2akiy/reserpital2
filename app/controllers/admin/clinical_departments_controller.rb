@@ -10,7 +10,7 @@ class Admin::ClinicalDepartmentsController < ApplicationController
     @clinical_departments = ClinicalDepartment.all
     @clinical_department = ClinicalDepartment.new(clinical_department_params)
     if @clinical_department.save
-      redirect_to  admin_clinical_departments_path
+      redirect_to admin_clinical_departments_path
     else
       render :index
     end
@@ -25,9 +25,9 @@ class Admin::ClinicalDepartmentsController < ApplicationController
   private
 
   def authenticate_admin
-    unless admin_signed_in?
-      redirect_to new_admin_session_path
-    end
+    return if admin_signed_in?
+
+    redirect_to new_admin_session_path
   end
 
   def clinical_department_params
