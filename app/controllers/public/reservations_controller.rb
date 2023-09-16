@@ -1,5 +1,6 @@
 class Public::ReservationsController < ApplicationController
   before_action :authenticate_end_user
+  before_action :is_matching_login_end_user, only: [:cancel]
 
   def create
      @reservation = current_end_user.reservations.new(hospital_id: params[:hospital_id],date:Date.today,time:Time.now)
@@ -38,6 +39,13 @@ class Public::ReservationsController < ApplicationController
 
    def reservation_params
       params.require(:reservation).permit(:date, :time, :hospital_id)
+   end
+
+   def is_matching_login_end_user
+      reservation = Reservation.find(params[:id])
+      unless reservation.end_user.id == current_end_user.id
+        redirect_to public_end_users_path
+      end
    end
 
 

@@ -25,7 +25,10 @@ Rails.application.routes.draw do
       resources :owners, only: [:index, :create, :destroy]
     end
     resources :clinical_departments, only: [:index, :create, :destroy]
-    resources :end_users, only: [:index, :show,:edit, :update]
+    resources :end_users, only: [:index, :show,:edit, :update] do
+      get 'end_users/unsubscribe' => 'end_users#unsubscribe'
+      patch 'end_users/withdrawal' => 'end_users#withdrawal'
+    end
   end
 
   namespace :owner do
