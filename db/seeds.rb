@@ -69,7 +69,7 @@ ClinicalDepartmentManager.find_or_create_by!(hospital_id: tokyoiin.id, clinical_
 Owner.find_or_create_by!(name: '東京一郎') do |owner|
   owner.email = 'tokyo1@owner.com'
   owner.password = 'owner123'
-  owner.hospital_id = tokyoiinn.id
+  owner.hospital_id = tokyoiin.id
 end
 
 # 病院2
