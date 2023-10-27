@@ -8,6 +8,47 @@
   box-sizing: border-box;
 }
 
-.test {
-  color: blue;
+.description {
+  font-size: 20px;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+.navbar {
+  width: 1024px;
+  font-size: 32px;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #FAFAFA;
+}
+
+.nav-list {
+  width: 120px;
+  text-align: right;
+}
+
+
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:1024px) {
+  
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .navbar {
+    width: 90%;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .navbar {
+    width: 90%;
+  }
 }
