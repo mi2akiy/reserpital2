@@ -1,58 +1,58 @@
-<p class="description">
-    reserpitalは病院の診察予約サイトです。<br>
-    最寄りの病院を探し簡単に診察予約が可能です。
-</p>
+<div class="main-visual">
+    <p class="description">
+        reserpitalは病院の診察予約サイトです。<br>
+        最寄りの病院を探し簡単に診察予約が可能です。
+    </p>
+</div>
+<div class="container">
 <!--管理者用-->
-<% if admin_signed_in? %>
-  <%= render 'admin' %>
-<!--病院オーナー用-->
-<% elsif owner_signed_in? %>
-  <%= render 'owner' %>
-<!--エンドユーザー用-->
-<% elsif end_user_signed_in? %>
-  <%= render 'public' %>
-<!--未ログイン-->
-<% else %>
-    <div class="d-flex justify-content-around">
-        <div class="border rounded text-center p-5">
+    <% if admin_signed_in? %>
+      <%= render 'admin' %>
+    <!--病院オーナー用-->
+    <% elsif owner_signed_in? %>
+      <%= render 'owner' %>
+    <!--エンドユーザー用-->
+    <% elsif end_user_signed_in? %>
+      <%= render 'public' %>
+    <!--未ログイン-->
+    <% else %>
+        <div class="item">
             <%= link_to public_hospitals_path do %>
                 病院を探す<br>
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search icon hospital-search"></i>
             <% end %>
         </div>
-        <div class="border rounded text-center p-5">
+        <div class="item">
             <%= link_to new_end_user_registration_path do %>
                 新規会員登録<br>
-                <i class="fas fa-user-plus"></i>
+                <i class="fas fa-user-plus icon"></i>
             <% end %>
         </div>
-        <div class="border rounded text-center p-5">
+        <div class="item">
             <%= link_to new_end_user_session_path do %>
                 ログイン<br>
-                <i class="fas fa-sign-in-alt"></i>
+                <i class="fas fa-sign-in-alt icon"></i>
             <% end %>
         </div>
-        <div class="border rounded text-center p-5">
+        <div class="item">
             <%= link_to end_users_guest_sign_in_path, method: :post do %>
                 ゲストログイン<br>
-                <i class="fas fa-sign-in-alt"></i>
+                <i class="fas fa-sign-in-alt icon"></i>
             <% end %>
         </div>
-    </div>
-    <div class="d-flex justify-content-around m-4">
-        <div class="border rounded text-center p-5">
+        <div class="item">
             <%= link_to new_admin_session_path, method: :post do %>
                 管理者ログイン<br>
-                <i class="fas fa-sign-in-alt"></i>
+                <i class="fas fa-sign-in-alt icon"></i>
             <% end %>
         </div>
-        <div class="border rounded text-center p-5">
+        <div class="item">
             <%= link_to new_owner_session_path, method: :post do %>
                 病院オーナーログイン<br>
-                <i class="fas fa-sign-in-alt"></i>
+                <i class="fa-solid fa-user-doctor icon"></i>
             <% end %>
         </div>
-    </div>
-<% end %>
-
+    <% end %>
 </div>
+
+<%= render 'layouts/footer' %>

@@ -8,47 +8,129 @@
   box-sizing: border-box;
 }
 
+.main-visual {
+  width: 500px;
+  height: 300px;
+  background-image: url('images/top.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
 .description {
   font-size: 20px;
   text-align: center;
 }
 
 header {
+  width: 100%;
   margin-bottom: 10px;
+}
+
+footer {
+  width: 100%;
+  height: 60px;
+  background-color: #17A2B8;
 }
 
 .navbar {
   width: 1024px;
   font-size: 32px;
   text-decoration: none;
+  color: #000000;
   margin: 0 auto;
 }
 
-.logo {
-  color: #FAFAFA;
+.nav-list {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nav-list {
-  width: 120px;
-  text-align: right;
+.nav-list a {
+  color: white;
+}
+
+.container {
+  width: 980px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #BAC0C6;
+  border-radius: 20px;
+  color: #0B131A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.item a {
+  color: #0B131A;
+}
+
+.icon {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.hospital-search {
+  color: #000000;
 }
 
 
 
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:1024px) {
-  
+  .navbar {
+    width: 90%;
+  }
+
+  .container {
+    width: 90%;
+  }
 }
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
+  .header {
+    width: 100%;
+  }
+
   .navbar {
+    width: 90%;
+  }
+
+  .main-visual {
+    width: 90%;
+  }
+
+  .container {
     width: 90%;
   }
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:425px) {
-  .navbar {
+  .header {
+    width: 100%;
+  }
+
+  .main-visual {
+    width: 90%;
+  }
+
+  .container {
     width: 90%;
   }
 }

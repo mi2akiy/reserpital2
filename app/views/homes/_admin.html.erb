@@ -1,26 +1,24 @@
-  <div class="d-flex justify-content-around">
-    <div class="border rounded text-center p-5">
-      <%= link_to admin_end_users_path do %>
-        ユーザー一覧<br>
-        <i class="fas fa-users"></i>
-      <% end %>
-    </div>
-    <div class="border rounded text-center p-5">
-      <%= link_to admin_hospitals_path do %>
-        病院一覧<br>
-        <i class="fas fa-hospital-alt"></i>
-      <% end %>
-    </div>
-    <div class="border rounded text-center p-5">
-      <%= link_to admin_clinical_departments_path do %>
-        診療科一覧<br>
-        <i class="fas fa-hospital-symbol"></i>
-      <% end %>
-    </div>
-    <div class="border rounded text-center p-5">
-      <%= link_to new_admin_hospital_path do %>
-        病院を追加する<br>
-        <i class="far fa-plus-square"></i>
-      <% end %>
-    </div>
-  </div>
+<div class="item">
+  <%= link_to admin_end_users_path do %>
+    ユーザー一覧<br>
+    <i class="fas fa-users icon"></i>
+  <% end %>
+</div>
+<div class="item">
+  <%= link_to admin_hospitals_path do %>
+    病院一覧<br>
+    <i class="fas fa-hospital-alt icon"></i>
+  <% end %>
+</div>
+<div class="item">
+  <%= link_to admin_clinical_departments_path do %>
+    診療科一覧<br>
+    <i class="fas fa-hospital-symbol icon"></i>
+  <% end %>
+</div>
+<div class="item">
+  <%= link_to new_admin_hospital_path do %>
+    病院を追加する<br>
+    <i class="far fa-plus-square icon"></i>
+  <% end %>
+</div>
