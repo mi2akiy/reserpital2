@@ -1,16 +1,17 @@
-<% @hospitals.each do |hospital| %>
-  <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
-  <div class="hospital-box border m-5 p-2 d-flex flex-row">
-  <div class="hospital-image">
-    <%= link_to public_hospital_path(hospital.id) do %>
-      <%= image_tag hospital.get_hospital_image(200,300) %>
-    <% end %>
-  </div>
+<div class="hospital-container">
+  <%= render 'public/hospitals/search', q: @q, url: public_hospitals_path %>
+  <% @hospitals.each do |hospital| %>
+    <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
+    <div class="hospital-box">
+    <div class="hospital-image">
+      <%= link_to public_hospital_path(hospital.id) do %>
+        <%= image_tag hospital.get_hospital_image(200,300) %>
+      <% end %>
+    </div>
 
-  <div class="hospital_details pl-2">
-    <table class="hospital_details-table table table-bordered">
+    <table class="table table-bordered">
       <tr>
-        <td>病院名</td>
+        <td class="table-head">病院名</td>
         <td>
           <%= link_to public_hospital_path(hospital.id) do %>
             <%= hospital.name %>
@@ -19,7 +20,7 @@
       </tr>
 
       <tr>
-        <td>診療科</td>
+        <td class="table-head">診療科</td>
         <td>
           <% hospital.clinical_departments.each do |clinical_department| %>
       　　  <%= clinical_department.name %>
@@ -28,13 +29,14 @@
       </tr>
 
   　　<tr>
-        <td>住所</td>
+        <td class="table-head">住所</td>
         <td><%= "〒" + hospital.postal_code + " " + hospital.address %></td>
   　　</tr>
   　</table>
 
   </div>
-</div>
-<% end %>
+  <% end %>
 
+
+</div>
 <%= paginate @hospitals %>

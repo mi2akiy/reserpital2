@@ -1,3 +1,45 @@
 // Place all the styles related to the public/hospitals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.hospital-container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.hospital-box {
+  border: 1px solid #BAC0C6;
+  display: flex;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.hospital-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.table-head {
+  width: 100px;
+}
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:1024px) {
+  .hospital-container {
+    width: 90%;
+  }
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+
+}
+/* スマートフォンサイズ（426px）以下の際に適用される設定 */
+@media screen and (max-width:426px) {
+  .hospital-box {
+    flex-direction: column;
+  }
+
+}
