@@ -4,7 +4,7 @@
         最寄りの病院を探し簡単に診察予約が可能です。
     </p>
 </div>
-<div class="container">
+<div class="top-container">
 <!--管理者用-->
     <% if admin_signed_in? %>
       <%= render 'admin' %>
@@ -43,12 +43,12 @@
         <div class="item">
             <%= link_to new_admin_session_path, method: :post do %>
                 管理者ログイン<br>
-                <i class="fas fa-sign-in-alt icon"></i>
+                <i class="fa-solid fa-user-tie icon"></i>
             <% end %>
         </div>
         <div class="item">
             <%= link_to new_owner_session_path, method: :post do %>
-                病院オーナーログイン<br>
+                病院オーナー<br>ログイン<br>
                 <i class="fa-solid fa-user-doctor icon"></i>
             <% end %>
         </div>

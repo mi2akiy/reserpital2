@@ -9,9 +9,9 @@
 }
 
 .main-visual {
-  width: 500px;
+  width: 100%;
   height: 300px;
-  background-image: url('images/top.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('assets/top.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -21,8 +21,11 @@
   margin-bottom: 30px;
 }
 .description {
-  font-size: 20px;
+  color: #FAFAFA;
+  font-size: clamp(16px, 2vw, 24px);
   text-align: center;
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
 header {
@@ -55,16 +58,16 @@ footer {
   color: white;
 }
 
-.container {
-  width: 980px;
+.top-container {
+  width: 600px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
 .item {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border: 3px solid #BAC0C6;
   border-radius: 20px;
   color: #0B131A;
@@ -72,7 +75,7 @@ footer {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-right: 20px;
+  margin: 0 10px;
   margin-bottom: 20px;
 }
 
@@ -96,10 +99,6 @@ footer {
   .navbar {
     width: 90%;
   }
-
-  .container {
-    width: 90%;
-  }
 }
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
@@ -112,12 +111,11 @@ footer {
     width: 90%;
   }
 
-  .main-visual {
+  .top-container {
     width: 90%;
-  }
-
-  .container {
-    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
@@ -126,11 +124,11 @@ footer {
     width: 100%;
   }
 
-  .main-visual {
+  .top-container {
     width: 90%;
   }
 
-  .container {
-    width: 90%;
+  .item:nth-child(2n)  {
+    margin-right: 0;
   }
 }
