@@ -47,8 +47,13 @@ footer {
   margin: 0 auto;
 }
 
+.collapse {
+  display: flex;
+  justify-content: right;
+}
+
 .nav-list {
-  width: 100px;
+  width: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,29 +108,19 @@ footer {
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
-  .header {
-    width: 100%;
+  .nav-list {
+  margin-left: auto;
   }
 
-  .navbar {
-    width: 90%;
-  }
-
-  .top-container {
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  .nav-list a {
+    text-algin: right;
   }
 }
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
-  .header {
-    width: 100%;
-  }
-
+/* スマートフォンサイズ（426px）以下の際に適用される設定 */
+@media screen and (max-width:426px) {
   .top-container {
     width: 90%;
+    justify-content: center;
   }
 
   .item:nth-child(2n)  {

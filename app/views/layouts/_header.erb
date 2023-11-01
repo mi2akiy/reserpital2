@@ -10,8 +10,8 @@
       <!--<div class="search">-->
       <!--  <%#= render 'public/hospitals/search', q: @q, url: public_hospitals_path %>-->
       <!--</div>-->
-      <ul class="navbar-nav navbar-dark ml-auto">
-        <% if admin_signed_in? %>-->
+      <ul class="navbar-nav navbar-dark">
+        <% if admin_signed_in? %>
             <li class="nav-list">
               <%= link_to 'ユーザー一覧', admin_end_users_path %>
             </li>
@@ -175,6 +175,6 @@
 <!--              <%# end %>-->
 <!--            </ul>-->
 <!--    </div>-->
-  
+
 <!--  </nav>-->
 <!--</header>-->
