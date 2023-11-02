@@ -14,6 +14,12 @@
   margin: 20px 0;
 }
 
+.hospital-show-box {
+  border: 1px solid #BAC0C6;
+  padding: 10px;
+  margin: 20px 0;
+}
+
 .hospital-image {
   display: flex;
   align-items: center;
@@ -22,7 +28,12 @@
 }
 
 .table-head {
-  width: 100px;
+  width: 130px;
+}
+
+.time-dable {
+  display: flex;
+  display: none;
 }
 
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
@@ -40,6 +51,29 @@
 @media screen and (max-width:426px) {
   .hospital-box {
     flex-direction: column;
+  }
+  
+  .hospital-image img {
+    width: 230px;
+    height: 150px;
+  }
+
+  h4 {
+    border-bottom: 3px solid #17A2B8;
+    text-align: center;
+  }
+  .time-infomation {
+    border: 1px solid #BAC0C6;
+    padding: 10px;
+    margin: 20px 0;
+  }
+
+  .table {
+    width: 90%;
+  }
+  
+  .time-table-mobile-head {
+    width: 10px;
   }
 
 }
