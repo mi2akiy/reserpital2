@@ -1,57 +1,52 @@
-<div class="d-flex justify-content-start">
-  <!--メニューボダン-->
-  <%= render 'menu'%>
-
-  <!--診察予約履歴一覧  -->
-  <div>
+<div class="reserved-hospitals-container">
+<!--診察予約履歴一覧  -->
     <% @reservations.each_with_index do|reservation, index| %>
-      <div class="hospital-box border m-5 p-2 d-flex flex-row">
-      <div class="hospital-image">
-        <%= link_to public_hospital_path(reservation.hospital.id) do %>
-          <%= image_tag reservation.hospital.get_hospital_image(200,300) %>
-        <% end %>
-      </div>
-
-      <div class="hospital_details pl-2">
-        <div class="reseravation border bg-light">
+      <div class="reserved-hospitals-box">
+        <div class="reseravation">
           <%= reservation.status_i18n %>
           <% if reservation.status == "accepted" %>
             <%= Reservation.where(hospital_id: reservation.hospital_id, status: "accepted").pluck(:end_user_id).index(current_end_user.id).to_i + 1 %>番目
             <!--キャンセル機能-->
-            <%= link_to 'キャンセルする', public_cancel_path(reservation.id), method: :patch, class:"btn btn-light" %>
+            <%= link_to 'キャンセルする', public_cancel_path(reservation.id), method: :patch, class:"btn btn-danger" %>
           <% else %>
-
+  
           <% end %>
         </div>
-        <table class="hospital_details-table table table-bordered">
-          <tr>
-            <td>病院名</td>
-            <td>
-              <%= link_to public_hospital_path(reservation.hospital.id) do %>
-                <%= reservation.hospital.name %>
-              <% end %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>診療科</td>
-            <td>
-              <% reservation.hospital.clinical_departments.each do |clinical_department| %>
-          　　  <%= clinical_department.name %>
-          　　  <% end %>
-            </td>
-          </tr>
-
-      　　<tr>
-            <td>住所</td>
-            <td><%= "〒" + reservation.hospital.postal_code + " " + reservation.hospital.address %></td>
-      　　</tr>
-      　</table>
-
+        <div class="hospital-details">
+          <div class="hospital-image">
+            <%= link_to public_hospital_path(reservation.hospital.id) do %>
+              <%= image_tag reservation.hospital.get_hospital_image(200,300) %>
+            <% end %>
+          </div>
+          
+          <table class="table table-bordered">
+            <tr>
+              <td class="table-head">病院名</td>
+              <td>
+                <%= link_to public_hospital_path(reservation.hospital.id) do %>
+                  <%= reservation.hospital.name %>
+                <% end %>
+              </td>
+            </tr>
+    
+            <tr>
+              <td class="table-head">診療科</td>
+              <td>
+                <% reservation.hospital.clinical_departments.each do |clinical_department| %>
+            　　  <%= clinical_department.name %>
+            　　  <% end %>
+              </td>
+            </tr>
+    
+        　　<tr>
+              <td class="table-head">住所</td>
+              <td><%= "〒" + reservation.hospital.postal_code + " " + reservation.hospital.address %></td>
+        　　</tr>
+        　</table>
+      　</div>
       </div>
-    </div>
     <% end %>
-  </div>
+  
 </div>
 
 <%#= paginate @hospitals %>

@@ -3,11 +3,11 @@
   <% @hospitals.each do |hospital| %>
     <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
     <div class="hospital-box">
-    <div class="hospital-image">
-      <%= link_to public_hospital_path(hospital.id) do %>
-        <%= image_tag hospital.get_hospital_image(200,300) %>
-      <% end %>
-    </div>
+      <div class="hospital-image">
+        <%= link_to public_hospital_path(hospital.id) do %>
+          <%= image_tag hospital.get_hospital_image(200,300) %>
+        <% end %>
+      </div>
 
     <table class="table table-bordered">
       <tr>
