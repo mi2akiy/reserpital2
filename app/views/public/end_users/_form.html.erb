@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="edit-container">
   <%= form_with model: @end_user, url: url, method: :patch do |f| %>
 
     <table class="table">
@@ -92,7 +92,7 @@
           <%= f.label :住所 %>
         </td>
         <td>
-          <%= f.text_field :address, autofocus: true, autocomplete: "address", style:"width: 400px;" %>
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", style:"width: 100%;" %>
         </td>
       </tr>
   

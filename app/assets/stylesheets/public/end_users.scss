@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// showのCSSーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .mypage-container {
   width: 1000px;
   margin: 0 auto;
@@ -26,18 +27,41 @@
   color: #FAFAFA;
 }
 
+// editのCSSーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.edit-container {
+  width: 650px;
+  margin: 0 auto;
+}
+
+
+
+
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:1024px) {
-  .mypage-container {
-  width: 90%;
-  margin: 0 auto;
-  display: column-reverse;
-  }
+  
 }
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
-
+// showのCSSーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+  .mypage-container {
+    width: 90%;
+    flex-direction: column-reverse;
+  }
+  
+  .personal_information {
+    width: 100%;
+  }
+  
+  .mypage-menu {
+    margin: 0 auto;
+  }
+  
+  
+// editのCSSーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+  .edit-container {
+  width: 90%;
+  }
 }
 /* スマートフォンサイズ（426px）以下の際に適用される設定 */
 @media screen and (max-width:426px) {

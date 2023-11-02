@@ -14,16 +14,17 @@
  *= require_self
  */
 
+
 .attention {
   color: red;
   font-size: 20px;
   text-align: center;
-  
+
 }
 
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:1024px) {
-  
+
 }
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
