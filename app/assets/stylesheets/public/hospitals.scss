@@ -31,6 +31,10 @@
   width: 130px;
 }
 
+.department-name {
+  margin-right: 10px;
+}
+
 .time-dable {
   display: flex;
   display: none;
@@ -52,7 +56,7 @@
   .hospital-box {
     flex-direction: column;
   }
-  
+
   .hospital-image img {
     width: 230px;
     height: 150px;
@@ -71,7 +75,7 @@
   .table {
     width: 90%;
   }
-  
+
   .time-table-mobile-head {
     width: 10px;
   }

@@ -23,7 +23,7 @@
         <td class="table-head">診療科</td>
         <td>
           <% hospital.clinical_departments.each do |clinical_department| %>
-      　　  <%= clinical_department.name %>
+      　　<span><%= clinical_department.name %></span>
       　　  <% end %>
         </td>
       </tr>
