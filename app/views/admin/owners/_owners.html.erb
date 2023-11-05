@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-start">
+<div class="owners-container">
   <!--オーナーの新規登録-->
   <div class="owner-registration">
     <%= form_with model: @owner, url: url, method: :post do |f| %>
@@ -28,28 +28,30 @@
   </div>
 
   <!--オーナー一覧-->
-  <table class="table table-bordered">
-    <tr>
-      <th>名前</th>
-      <th>email</th>
-      <th></th>
-    </tr>
-    <% @owners.each do |owner| %>
-    <tr>
-      <td>
-        <%= owner.name %>
-      </td>
-      <td>
-        <%= owner.email %>
-      </td>
-      <td>
-        <% if admin_signed_in? %>
-          <%= link_to '削除', admin_hospital_owner_path(@hospital.id,owner.id), method: :DELETE %>
-        <% elsif owner_signed_in? %>
-          <%= link_to '削除', owner_owner_path(owner.id), method: :DELETE %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+  <div class="owaners-index">
+    <table class="table table-bordered">
+      <tr>
+        <th>名前</th>
+        <th>email</th>
+        <th></th>
+      </tr>
+      <% @owners.each do |owner| %>
+      <tr>
+        <td>
+          <%= owner.name %>
+        </td>
+        <td>
+          <%= owner.email %>
+        </td>
+        <td>
+          <% if admin_signed_in? %>
+            <%= link_to '削除', admin_hospital_owner_path(@hospital.id,owner.id), method: :DELETE %>
+          <% elsif owner_signed_in? %>
+            <%= link_to '削除', owner_owner_path(owner.id), method: :DELETE %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

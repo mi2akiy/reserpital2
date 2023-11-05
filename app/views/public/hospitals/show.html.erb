@@ -5,100 +5,16 @@
   <% end %>
   </ul>
 <% end %>
-<div class="hospital-container">
-  <div class="hospital-show-box">
-    <%= render 'admin/hospitals/hospital-information', hospital: @hospital %>
-    <table class="table table-bordered d-none d-md-block">
-      <tr class="table-primary">
-        <th> </th>
-        <th>診察開始時間</th>
-        <th>診察終了時間</th>
-        <th>月</th>
-        <th>火</th>
-        <th>水</th>
-        <th>木</th>
-        <th>金</th>
-        <th>土</th>
-        <th>日</th>
-        <th>祝日</th>
-      </tr>
-      <tr>
-        <td>午前</td>
-        <td><%= l @hospital.am_start_time, format: :short %></td>
-        <td><%= l @hospital.am_end_time, format: :short %></td>
-        <td><%= @hospital.monday_am %></td>
-        <td><%= @hospital.tuesday_am %></td>
-        <td><%= @hospital.wednesday_am %></td>
-        <td><%= @hospital.thursday_am %></td>
-        <td><%= @hospital.friday_am %></td>
-        <td><%= @hospital.saturday_am %></td>
-        <td><%= @hospital.sunday_am %></td>
-        <td><%= @hospital.holiday_am %></td>
-      </tr>
-      <tr>
-        <td>午後</td>
-        <td><%= l @hospital.pm_start_time, format: :short %></td>
-        <td><%= l @hospital.pm_end_time, format: :short %></td>
-        <td><%= @hospital.monday_pm %></td>
-        <td><%= @hospital.tuesday_pm %></td>
-        <td><%= @hospital.wednesday_pm %></td>
-        <td><%= @hospital.thursday_pm %></td>
-        <td><%= @hospital.friday_pm %></td>
-        <td><%= @hospital.saturday_pm %></td>
-        <td><%= @hospital.sunday_pm %></td>
-        <td><%= @hospital.holiday_pm %></td>
-      </tr>
-    </table>
-  </div>
 
-  <!--モバイル用診察時間-->
-  <div class="time-infomation d-block d-md-none">
-    <h4>診察時間</h4>
-    <p>午前 <%= l @hospital.am_start_time, format: :short%>~<%= l @hospital.am_end_time, format: :short %></p>
-    <p>午後 <%= l @hospital.am_start_time, format: :short %>~<%= l @hospital.pm_end_time, format: :short %></p>
-    <table class="table table-bordered time-table-mobile">
-      <tr class="table-primary">
-        <th class="time-table-mobile-head">月</th>
-        <th class="time-table-mobile-head">火</th>
-        <th class="time-table-mobile-head">水</th>
-        <th class="time-table-mobile-head">木</th>
-        <th class="time-table-mobile-head">金</th>
-        <th class="time-table-mobile-head">土</th>
-        <th class="time-table-mobile-head">日</th>
-        <th class="time-table-mobile-head">祝日</th>
-      </tr>
-      <tr>
-        <td><%= @hospital.monday_am %></td>
-        <td><%= @hospital.tuesday_am %></td>
-        <td><%= @hospital.wednesday_am %></td>
-        <td><%= @hospital.thursday_am %></td>
-        <td><%= @hospital.friday_am %></td>
-        <td><%= @hospital.saturday_am %></td>
-        <td><%= @hospital.sunday_am %></td>
-        <td><%= @hospital.holiday_am %></td>
-      </tr>
-      <tr>
-        <td><%= @hospital.monday_pm %></td>
-        <td><%= @hospital.tuesday_pm %></td>
-        <td><%= @hospital.wednesday_pm %></td>
-        <td><%= @hospital.thursday_pm %></td>
-        <td><%= @hospital.friday_pm %></td>
-        <td><%= @hospital.saturday_pm %></td>
-        <td><%= @hospital.sunday_pm %></td>
-        <td><%= @hospital.holiday_pm %></td>
-      </tr>
-    </table>
-  </div>
+<%= render 'admin/hospitals/hospital-information', hospital: @hospital %>
 
-
-  <!--メニューボタン-->
-  <div class="d-flex justify-content-center">
-    <div class="m-2">
-      <%= form_with url:public_hospital_reservations_path(@hospital), method: :post do |f| %>
-        <%#= f.hidden_field :status, :value => "0" %>
-        <%= f.submit '診察予約をする', class:"btn btn-success" %>
-      <% end %>
-    </div>
-    <div class="m-2"><%= link_to "戻る", public_hospitals_path, class:"btn btn-light" %></div>
+<!--メニューボタン-->
+<div class="d-flex justify-content-center">
+  <div class="m-2">
+    <%= form_with url:public_hospital_reservations_path(@hospital), method: :post do |f| %>
+      <%#= f.hidden_field :status, :value => "0" %>
+      <%= f.submit '診察予約をする', class:"btn btn-success" %>
+    <% end %>
   </div>
+  <div class="m-2"><%= link_to "戻る", public_hospitals_path, class:"btn btn-light" %></div>
 </div>

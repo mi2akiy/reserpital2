@@ -1,3 +1,14 @@
 // Place all the styles related to the owner/owners controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.owners-container {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.owaners-index {
+  width: 100%;
+  margin-left: 20px;
+}
