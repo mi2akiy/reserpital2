@@ -26,11 +26,25 @@
 
 .hospital-details {
   flex-direction: column;
-  style-decoration: none;
+  list-style: none;
+}
+
+.hospital-detail-icon {
+  margin-right: 10px;
 }
 
 .hospital-details li {
   margin-bottom: 10px;
+}
+
+.clinical-departments-name {
+  border-right: 1px solid #000000;
+  padding: 0 5px;
+}
+
+
+.clinical-departments-name:last-child {
+  border-right: none;
 }
 
 .table-head {

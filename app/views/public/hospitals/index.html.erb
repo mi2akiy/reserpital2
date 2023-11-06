@@ -1,7 +1,6 @@
 <div class="hospital-container">
   <%= render 'public/hospitals/search', q: @q, url: public_hospitals_path %>
   <% @hospitals.each do |hospital| %>
-    <%#= render 'admin/hospitals/hospital-information', hospital: @hospital %>
     <div class="hospital-box">
       <div class-"hospital-upper">
         <h6 class="inline">
@@ -18,21 +17,22 @@
         </div>
         <div class="hospital-right">
           <p>ただいま<strong class="text-danger"><%= hospital.reservations.where(reservations: { status: :accepted }).count %>人待ち</strong>です。</p>
-          <table class="table">
-            <tr>
-              <td class="table-head">診療科</td>
-              <td>
-                <% hospital.clinical_departments.each do |clinical_department| %>
-            　　<span><%= clinical_department.name %></span>
-            　　  <% end %>
-              </td>
-            </tr>
-    
-        　　<tr>
-              <td class="table-head">住所</td>
-              <td><%= "〒" + hospital.postal_code + " " + hospital.address %></td>
-        　　</tr>
-        　</table>
+          <ul class="hospital-details">
+            <li>
+              <i class="fa-solid fa-location-dot hospital-detail-icon"></i>
+              <%= "〒" + hospital.postal_code + " " + hospital.address %>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone hospital-detail-icon"></i>
+              <%= hospital.telephone_number %>
+            </li>
+            <li>
+              <i class="fa-solid fa-stethoscope hospital-detail-icon"></i>
+              <% hospital.clinical_departments.each do |clinical_department| %>
+                <span class="clinical-departments-name"><%= clinical_department.name %></span>
+              <% end %>
+            </li>
+          </ul>
       　</div>
       </div>
     </div>

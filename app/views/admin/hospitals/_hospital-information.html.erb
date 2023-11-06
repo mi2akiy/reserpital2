@@ -1,4 +1,5 @@
 <div class="hospital-container">
+  <!--病院詳細----------------------------------------->
   <div class="hospital-box">
     <div class="hospital-upper">
       <h6><%= @hospital.name %></h6>
@@ -10,24 +11,25 @@
       <div class="hospital-right">
         <ul class="hospital-details">
           <li>
-            <i class="fa-solid fa-location-dot"></i>
+            <i class="fa-solid fa-location-dot hospital-detail-icon"></i>
             <%= "〒" + @hospital.postal_code + " " + @hospital.address %>
           </li>
           <li>
-            <i class="fa-solid fa-phone"></i>
+            <i class="fa-solid fa-phone hospital-detail-icon"></i>
             <%= @hospital.telephone_number %>
           </li>
           <li>
-            <i class="fa-solid fa-stethoscope"></i>
-            <% @hospital.clinical_departments.each do |clinical_department| %>-->
-        　　    <%= clinical_department.name %>
-        　　  <% end %>
+            <i class="fa-solid fa-stethoscope hospital-detail-icon"></i>
+            <% @hospital.clinical_departments.each do |clinical_department| %>
+              <span class="clinical-departments-name"><%= clinical_department.name %></span>
+            <% end %>
           </li>
         </ul>
       </div>
-
   　</div>
   </div>
+  
+  <!--診察時間----------------------------------------------->
   <table class="table table-bordered time-infomation" >
       <tr class="table-primary">
         <th> </th>
