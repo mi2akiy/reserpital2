@@ -3,7 +3,7 @@
   <% @hospitals.each do |hospital| %>
     <div class="hospital-box">
       <div class-"hospital-upper">
-        <h6 class="inline">
+        <h6 class="hospital-name">
           <%= link_to public_hospital_path(hospital.id) do %>
             <%= hospital.name %>
           <% end %>

@@ -76,10 +76,19 @@
   .hospital-box {
     flex-direction: column;
   }
+  
+  .hospital-name {
+    text-align: center;
+  }
 
   .hospital-image img {
     width: 230px;
     height: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .hospital-lower {
+    flex-direction: column;
   }
 
   h4 {
